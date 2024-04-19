@@ -6,50 +6,44 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
-def plot_treemap(df, path, drill_down_level=3):
+def plot_treemap(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly treemap plot from a DataFrame.
     """
 
     path = path[0:drill_down_level]
+    color_scale = getattr(px.colors.sequential, col_scale)
 
-    fig = px.treemap(df, path=path, values='total', custom_data=['total'])
+    fig = px.treemap(df, path=path, values='total', custom_data=[
+                     'total'], color_discrete_sequence=color_scale)
     fig.update_traces(
         texttemplate='%{label} <br> Total: %{customdata[0]:.2f}', textposition='middle center', textfont_size=12)
-    # fig.show()
+    fig.update_traces(
+        hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
 
-    # # joins numerical total per level to title
-    # # very hacky way to do this, but it works, replace later
-    # level_totals = df.groupby(path[0])['total'].sum()
-    # df[path[0] + '_total'] = df[path[0]].map(level_totals)
-    # level_totals = df.groupby([path[0], path[1]])['total'].sum()
-    # df[path[1] +
-    #     '_total'] = df.set_index([path[0], path[1]]).index.map(level_totals.get)
-
-    # level_totals = df.groupby([path[0], path[1], path[2]])['total'].sum()
-    # df[path[2] + '_total'] = df.set_index([path[0],
-    #                                       path[1], path[2]]).index.map(level_totals.get)
-    # df[path[0]] = df[path[0]] + ' Total: ' + df[path[0] + '_total'].astype(str)
-    # df[path[1]] = df[path[1]] + ' Total: ' + df[path[1] + '_total'].astype(str)
-    # df[path[2]] = df[path[2]] + ' Total: ' + df[path[2] + '_total'].astype(str)
-
-    # fig = px.treemap(df, path=path, values='total')
-
-    # fig.show()
     return fig
 
 
-def plot_sunburst(df, path, drill_down_level=3):
+def plot_sunburst(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly sunburst plot from a DataFrame.
     """
 
-    path = path[0:drill_down_level]
-    fig = px.sunburst(df, path=path, values='total')
-    # fig.show()
-    return fig
+    # df = df_in.copy()
 
-    fig.show()
+    path = path[0:drill_down_level]
+    color_scale = getattr(px.colors.sequential, col_scale)
+
+    # fig = px.sunburst(df, path=path, values='total',
+    #                   color_discrete_sequence=color_scale)
+    # df[path[-1]] = df[path[-1]] + '<br>Total: ' + df['total'].astype(str)
+
+    fig = px.sunburst(df, path=path, values='total',
+                      color_discrete_sequence=color_scale)
+
+    fig.update_traces(
+        hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
+    return fig
 
 
 def plot_sankey(df, source_column, target_column, value_column):

@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output
 from config import BU23_EXP_URLS, BU23_INC_URLS
 from data_functions import build_budget, normalize_budget
 from plot import plot_treemap, plot_sunburst, plot_sankey
-
+import plotly.express as px
 
 bu23_exp = build_budget(BU23_EXP_URLS)
 bu23_inc = build_budget(BU23_INC_URLS)
@@ -46,7 +46,8 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.H1("Main Title", style={'textAlign': 'center'}),
-    html.Div("Some text", style={'textAlign': 'center'}),
+    html.Div("most dropdown menus for development purposes only, removed from final app", style={
+             'textAlign': 'center'}),
 
     html.Div([
         html.Div([
@@ -92,6 +93,25 @@ app.layout = html.Div([
             ),
         ], style={'width': '32%', 'display': 'inline-block'}),
     ]),
+    html.Div([
+        html.Label('Color Scale for Income'),
+        dcc.Dropdown(
+            id='colorscale-income-dropdown',
+            options=[{'label': i, 'value': i}
+                     for i in dir(px.colors.sequential)],
+            value='Viridis'
+        ),
+    ], style={'width': '32%', 'display': 'inline-block'}),
+    html.Div([
+        html.Label('Color Scale for Expenses'),
+        dcc.Dropdown(
+            id='colorscale-expenses-dropdown',
+            options=[{'label': i, 'value': i}
+                     for i in dir(px.colors.sequential)],
+            value='Viridis'
+        ),
+    ], style={'width': '32%', 'display': 'inline-block'}),
+
 
     html.Div([
         dcc.Graph(id='graph1', style={
@@ -101,15 +121,19 @@ app.layout = html.Div([
     ])
 ])
 
+print(px.colors.sequential)
+
 
 @app.callback(
     [Output('graph1', 'figure'),
      Output('graph2', 'figure')],
     [Input('normalization-dropdown', 'value'),
      Input('drill-down-dropdown', 'value'),
-     Input('graph-type-dropdown', 'value')]
+     Input('graph-type-dropdown', 'value'),
+     Input('colorscale-expenses-dropdown', 'value'),
+     Input('colorscale-income-dropdown', 'value')]
 )
-def update_graph(normalization, drilldown, graph_type):
+def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
     if normalization == 'percentage':
         df_exp = bu23_exp_percentage
         df_inc = bu23_inc_percentage
@@ -146,33 +170,31 @@ def update_graph(normalization, drilldown, graph_type):
     path_inc = ['Osaston nimi', 'Tuloluvun nimi', 'Tulomomentin nimi']
 
     if graph_type == 'treemap':
-        fig1 = plot_treemap(df_exp, path_exp, drill_down_level=drilldown)
-        fig2 = plot_treemap(df_inc, path_inc, drill_down_level=drilldown)
+        fig1 = plot_treemap(
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+        fig2 = plot_treemap(
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
     elif graph_type == 'sunburst':
-        fig1 = plot_sunburst(df_exp, path_exp, drill_down_level=drilldown)
-        fig2 = plot_sunburst(df_inc, path_inc, drill_down_level=drilldown)
+        fig1 = plot_sunburst(
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+        fig2 = plot_sunburst(
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
     else:
         raise ValueError("Invalid graph type.")
 
-    # fig1 = plot_treemap(df_exp, path_exp, drill_down_level=3)
-    # fig1 = plot_sankey(df_exp, 'Pääluokan nimi', 'Menoluvun nimi', 'total')
-    # fig1 = plot_sunburst(df_exp, path_exp, drill_down_level=drilldown)
     fig1.update_layout(
         autosize=False,
         width=1100,
         height=1000,
     )
 
-    # fig2 = plot_treemap(df_inc, path_inc, drill_down_level=3)
-    # fig2 = plot_sankey(df_inc, 'Osaston nimi', 'Tuloluvun nimi', 'total')
-    # fig2 = plot_sunburst(df_inc, path_inc, drill_down_level=drilldown)
     fig2.update_layout(
         autosize=False,
         width=1100,
         height=1000,
     )
 
-    return fig1, fig2
+    return fig2, fig1
 
 
 if __name__ == '__main__':
