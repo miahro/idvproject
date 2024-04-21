@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Install Poetry
@@ -22,9 +22,9 @@ jobs:
         run: poetry install
       - name: Lint
         run: poetry run pylint src
-      - name: Install Flyctl
-        run: curl -L https://fly.io/install.sh | sh
-      - name: Login to Fly
-        run: flyctl auth token ${{ secrets.FLY_API_TOKEN }}
+      # - name: Install Flyctl
+      #   run: curl -L https://fly.io/install.sh | sh
+      # - name: Login to Fly
+      #   run: flyctl auth token ${{ secrets.FLY_API_TOKEN }}
       # - name: Deploy to Fly
       #   run: flyctl deploy
