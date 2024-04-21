@@ -23,3 +23,6 @@ jobs:
         run: poetry install
       - name: Lint
         run: poetry run pylint src
+      - name: Deploy to Fly
+        run: |
+          flyctl deploy
