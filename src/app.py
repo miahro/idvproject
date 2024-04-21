@@ -1,18 +1,21 @@
+"""Module for Dash app."""
+
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
-from config import BU23_EXP_URLS, BU23_INC_URLS
-from data_functions import build_budget, normalize_budget
-from plot import plot_treemap, plot_sunburst, plot_sankey
 import plotly.express as px
+from config import BU23_EXP_URLS, BU23_INC_URLS
+from data_functions import build_budget, normalize_budget, budget_total_and_balance
+from plot import plot_treemap, plot_sunburst, plot_balance_bar
+
 
 bu23_exp = build_budget(BU23_EXP_URLS)
 bu23_inc = build_budget(BU23_INC_URLS)
 
 # print(f'expenses: {bu23_exp.describe()}')
 
-bu23_exp_meuros = normalize_budget(bu23_exp, method='meuros')
-bu23_inc_meuros = normalize_budget(bu23_inc, method='meuros')
+bu23_exp_beuros = normalize_budget(bu23_exp, method='beuros')
+bu23_inc_beuros = normalize_budget(bu23_inc, method='beuros')
 
 bu23_exp_percentage = normalize_budget(bu23_exp, method='percentage')
 bu23_inc_percentage = normalize_budget(bu23_inc, method='percentage')
@@ -42,6 +45,7 @@ bu23_exp_median_monthly_salary = normalize_budget(
 bu23_inc_median_monthly_salary = normalize_budget(
     bu23_inc, method='median_monthly_salary')
 
+
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
@@ -64,7 +68,7 @@ app.layout = html.Div([
                     {'label': 'Pizzas per capita', 'value': 'pizzas'},
                     {'label': 'Median Monthly Salaries per working age capita',
                         'value': 'median_monthly_salary'},
-                    {'label': 'Millions of Euros', 'value': 'Meuros'}
+                    {'label': 'Billions of Euros', 'value': 'Beuros'}
                 ],
                 value='percentage'
             ),
@@ -94,15 +98,6 @@ app.layout = html.Div([
         ], style={'width': '32%', 'display': 'inline-block'}),
     ]),
     html.Div([
-        html.Label('Color Scale for Income'),
-        dcc.Dropdown(
-            id='colorscale-income-dropdown',
-            options=[{'label': i, 'value': i}
-                     for i in dir(px.colors.sequential)],
-            value='Viridis'
-        ),
-    ], style={'width': '32%', 'display': 'inline-block'}),
-    html.Div([
         html.Label('Color Scale for Expenses'),
         dcc.Dropdown(
             id='colorscale-expenses-dropdown',
@@ -111,6 +106,16 @@ app.layout = html.Div([
             value='Viridis'
         ),
     ], style={'width': '32%', 'display': 'inline-block'}),
+    html.Div([
+        html.Label('Color Scale for Income'),
+        dcc.Dropdown(
+            id='colorscale-income-dropdown',
+            options=[{'label': i, 'value': i}
+                     for i in dir(px.colors.sequential)],
+            value='Viridis'
+        ),
+    ], style={'width': '32%', 'display': 'inline-block'}),
+
 
 
     html.Div([
@@ -118,15 +123,20 @@ app.layout = html.Div([
                   'display': 'inline-block', 'width': '49%'}),
         dcc.Graph(id='graph2', style={
                   'display': 'inline-block', 'width': '49%'}),
-    ])
+    ]),
+    html.Div([
+        dcc.Graph(id='balance_fig', style={
+                  'display': 'inline-block', 'width': '49%'}),
+    ]),
 ])
 
 print(px.colors.sequential)
 
 
-@app.callback(
+@ app.callback(
     [Output('graph1', 'figure'),
-     Output('graph2', 'figure')],
+     Output('graph2', 'figure'),
+     Output('balance_fig', 'figure')],
     [Input('normalization-dropdown', 'value'),
      Input('drill-down-dropdown', 'value'),
      Input('graph-type-dropdown', 'value'),
@@ -134,6 +144,8 @@ print(px.colors.sequential)
      Input('colorscale-income-dropdown', 'value')]
 )
 def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
+    """Method to update graphs based on user drop down selections"""
+    # pylint: disable=R0912
     if normalization == 'percentage':
         df_exp = bu23_exp_percentage
         df_inc = bu23_inc_percentage
@@ -158,12 +170,12 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
     elif normalization == 'median_monthly_salary':
         df_exp = bu23_exp_median_monthly_salary
         df_inc = bu23_inc_median_monthly_salary
-    elif normalization == 'Meuros':
-        df_exp = bu23_exp_meuros
-        df_inc = bu23_inc_meuros
+    elif normalization == 'Beuros':
+        df_exp = bu23_exp_beuros
+        df_inc = bu23_inc_beuros
     else:
         raise ValueError("Invalid normalization method.")
-    # Add other normalization methods here
+
     print(f'chosen normalization {normalization}')
 
     path_exp = ['Pääluokan nimi', 'Menoluvun nimi', 'Menomomentin nimi']
@@ -194,7 +206,16 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
         height=1000,
     )
 
-    return fig2, fig1
+    net_income, total_expenses, balance = budget_total_and_balance(
+        df_inc, df_exp)
+
+    print(balance)
+
+    # balance_fig = plot_balance_bar(net_income, total_expenses, balance)
+    # balance_fig = plot_balance_gauge(net_income, total_expenses, balance)
+    balance_fig = plot_balance_bar(net_income, total_expenses)
+
+    return fig1, fig2, balance_fig
 
 
 if __name__ == '__main__':

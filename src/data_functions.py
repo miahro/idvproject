@@ -1,7 +1,8 @@
 """Module for data functions."""
 
 import pandas as pd
-from norm_factors import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
+from norm_factors import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
+    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
 
 
 def read_csvs(url_list):
@@ -50,6 +51,19 @@ def concat_dataframes(df_list):
     return df_concat
 
 
+def process_dataframe(df_list):
+    """
+    Process a DataFrame to keep only certain columns and rename one of them.
+    """
+    df_concat = pd.concat(df_list, ignore_index=True)
+
+    df_concat = df_concat.filter(regex='nimi$|Määräraha')
+
+    df_concat = df_concat.rename(columns={"Määräraha": "total"})
+
+    return df_concat
+
+
 def build_budget(url_list):
     """
     Build a budget dataframe from a list of dataframes.
@@ -60,8 +74,11 @@ def build_budget(url_list):
     if not check_same_columns(df_list):
         raise ValueError("Dataframes do not have the same columns.")
 
-    df_concat = concat_dataframes(df_list)
+    # df_concat = concat_dataframes(df_list)
+    df_concat = process_dataframe(df_list)
     # print(df_concat.shape)
+
+    print(df_concat.head())
 
     return df_concat
 
@@ -75,8 +92,8 @@ def normalize_budget(df, method=None):
 
     df = df.copy()
 
-    if method == 'meuros':
-        df['total'] = (df['total'] / 10**6).round(1)
+    if method == 'beuros':
+        df['total'] = (df['total'] / 10**9).round(1)
     elif method == 'percentage':
         df['total'] = (df['total'] / df['total'].sum() * 100).round(1)
     elif method == 'per_capita':
@@ -100,3 +117,30 @@ def normalize_budget(df, method=None):
     # print(df.describe())
 
     return df
+
+
+def budget_total_and_balance(df_inc, df_exp):
+    """
+    Calculate the total income and expenses and the balance.
+    """
+
+    df_inc = df_inc.copy()
+    df_exp = df_exp.copy()
+
+    total_income = df_inc['total'].sum()
+    total_expenses = df_exp['total'].sum()
+
+    net_loans = df_inc.loc[df_inc['Tulomomentin nimi'].str.startswith(
+        'Nettolainanotto'), 'total'].values[0]
+
+    net_income = total_income - net_loans
+
+    print(f"total: {net_loans}")
+    balance = net_income - total_expenses
+
+    print(
+        f'total income: {total_income}, net income: {net_income} total expenses:'
+        f'{total_expenses}, balance: {balance}'
+    )
+
+    return net_income, total_expenses, balance
