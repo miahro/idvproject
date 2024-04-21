@@ -27,7 +27,7 @@ jobs:
           curl -L https://fly.io/install.sh | sh
           echo "/home/runner/.fly/bin" >> $GITHUB_PATH
       - name: Test repository secrets
-        run: echo "dummy secret ${{ secrets.DUMMY_SECRET }}"
+        run: echo "dummy secret ${{ secrets.IDV_PROJECT }}"
       - name: Login to Fly
         run: flyctl auth token ${{ secrets.IDV_PROJECT }}
       - name: Deploy to Fly
