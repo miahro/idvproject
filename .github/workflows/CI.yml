@@ -19,12 +19,14 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-root
       - name: Lint
         run: poetry run pylint src
       - name: Install Flyctl
-        run: curl -L https://fly.io/install.sh | sh
+        run: |
+          curl -L https://fly.io/install.sh | sh
+          echo "/home/runner/.fly/bin" >> $GITHUB_PATH
       - name: Login to Fly
         run: flyctl auth token ${{ secrets.FLY_API_TOKEN }}
-      # - name: Deploy to Fly
-      #   run: flyctl deploy
+      - name: Deploy to Fly
+        run: flyctl deploy
