@@ -234,14 +234,14 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
 
     fig1.update_layout(
         autosize=False,
-        width=1100,
-        height=1000,
+        width=1000,
+        height=900,
     )
 
     fig2.update_layout(
         autosize=False,
-        width=1100,
-        height=1000,
+        width=1000,
+        height=900,
     )
 
     _, _, balance = budget_total_and_balance(
