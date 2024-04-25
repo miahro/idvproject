@@ -22,10 +22,17 @@ def filter_csv_links(links):
     return csv_lnks
 
 
-WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2023/tae'
-               '/eduskunnanKirjelma/2023-tae-eduskunnanKirjelma.html'
-               )
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2023/tae'
+#                '/eduskunnanKirjelma/2023-tae-eduskunnanKirjelma.html'
+#                )
 
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2019/tae'
+#                '/eduskunnanKirjelma/2019-tae-eduskunnanKirjelma.html'
+#                )
+
+WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2014/tae'
+               '/eduskunnanKirjelma/2014-tae-eduskunnanKirjelma.html'
+               )
 
 all_links = extract_links(WEBPAGE_URL)
 

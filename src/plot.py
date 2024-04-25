@@ -117,6 +117,23 @@ def plot_balance_bar(net_income, total_expenses):
     return fig
 
 
+def plot_simple_balance(balance):
+    """
+    Create a Plotly indicator for the budget balance.
+    """
+
+    color = 'green' if balance >= 0 else 'red'
+
+    fig = go.Figure(go.Indicator(
+        mode="number",
+        value=balance,
+        number={'font': {'color': color}},
+        title={"text": "Budget Balance"}
+    ))
+
+    return fig
+
+
 def plot_sankey(df, source_column, target_column, value_column):
     """Plot a Sankey diagram from a DataFrame."""
 

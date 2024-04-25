@@ -4,13 +4,30 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.express as px
-from config import BU23_EXP_URLS, BU23_INC_URLS
-from data_functions import build_budget, normalize_budget, budget_total_and_balance
-from plot import plot_treemap, plot_sunburst, plot_balance_bar
+from config import BU23_EXP_URLS, BU23_INC_URLS, BU19_EXP_URLS, \
+    BU19_INC_URLS, BU14_EXP_URLS, BU14_INC_URLS
+from data_functions import normalize_budget, budget_total_and_balance
+from plot import plot_treemap, plot_sunburst, plot_simple_balance
+from data_manager import get_or_save_data
+
+# bu23_exp = build_budget(BU23_EXP_URLS)
+# bu23_inc = build_budget(BU23_INC_URLS)
+
+# bu19_exp = build_budget(BU19_EXP_URLS)
+# bu19_inc = build_budget(BU19_INC_URLS)
+
+# bu14_exp = build_budget(BU14_EXP_URLS)
+# bu14_inc = build_budget(BU14_INC_URLS)
 
 
-bu23_exp = build_budget(BU23_EXP_URLS)
-bu23_inc = build_budget(BU23_INC_URLS)
+bu23_exp = get_or_save_data(BU23_EXP_URLS, 'data/bu23_exp.csv')
+bu23_inc = get_or_save_data(BU23_INC_URLS, 'data/bu23_inc.csv')
+
+bu19_exp = get_or_save_data(BU19_EXP_URLS, 'data/bu19_exp.csv')
+bu19_inc = get_or_save_data(BU19_INC_URLS, 'data/bu19_inc.csv')
+
+bu14_exp = get_or_save_data(BU14_EXP_URLS, 'data/bu14_exp.csv')
+bu14_inc = get_or_save_data(BU14_INC_URLS, 'data/bu14_inc.csv')
 
 # print(f'expenses: {bu23_exp.describe()}')
 
@@ -116,8 +133,6 @@ app.layout = html.Div([
         ),
     ], style={'width': '32%', 'display': 'inline-block'}),
 
-
-
     html.Div([
         dcc.Graph(id='graph1', style={
                   'display': 'inline-block', 'width': '49%'}),
@@ -126,8 +141,10 @@ app.layout = html.Div([
     ]),
     html.Div([
         dcc.Graph(id='balance_fig', style={
-                  'display': 'inline-block', 'width': '49%'}),
-    ]),
+            'display': 'block', 'width': '10%', 'margin': '10 px'}),
+    ], style={'margin-top': '10px', 'margin-bottom': '10px'}),
+
+
 ])
 
 print(px.colors.sequential)
@@ -209,15 +226,21 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
     net_income, total_expenses, balance = budget_total_and_balance(
         df_inc, df_exp)
 
-    print(balance)
+    print(
+        f'net income: {net_income}, total expenses: {total_expenses}, balance: {balance}')
 
     # balance_fig = plot_balance_bar(net_income, total_expenses, balance)
-    # balance_fig = plot_balance_gauge(net_income, total_expenses, balance)
-    balance_fig = plot_balance_bar(net_income, total_expenses)
+    balance_fig = plot_simple_balance(balance)
+    balance_fig.update_layout(
+        autosize=True,
+        width=400,
+        height=400,
+    )
+    # balance_fig = plot_balance_bar(net_income, total_expenses)
 
     return fig1, fig2, balance_fig
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8050)
-    # app.run_server(debug=True)
+    # app.run_server(host='0.0.0.0', port=8050)
+    app.run_server(debug=True)

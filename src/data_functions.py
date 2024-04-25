@@ -10,8 +10,12 @@ def read_csvs(url_list):
     Read a list of csv files and return a list of dataframes.
     """
 
+    print(f'number of urls: {len(url_list)}')
+    # print(url_list)
+
     dataframes = []
     for url in url_list:
+        print(f'reading {url}')
         dataframes.append(pd.read_csv(
             url, encoding='ISO-8859-1', sep=';', decimal=','))
     return dataframes
@@ -103,14 +107,14 @@ def normalize_budget(df, method=None):
     elif method == 'big_mac':
         df['total'] = (df['total'] / (BIG_MAC * TOTAL_CAPITA)).round(1)
     elif method == 'gdp':
-        df['total'] = (df['total'] / GDP).round(1)
+        df['total'] = (df['total'] / GDP).round(4)
     elif method == 'milk_cartons':
         df['total'] = (df['total'] / (MILK_CARTON * TOTAL_CAPITA)).round(1)
     elif method == 'pizzas':
         df['total'] = (df['total'] / (PIZZA * TOTAL_CAPITA)).round(1)
     elif method == 'median_monthly_salary':
         df['total'] = (df['total'] /
-                       (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)).round(1)
+                       (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)).round(2)
     else:
         raise ValueError("Invalid normalization method.")
     # print(f'normalized with {method} method')
@@ -135,7 +139,7 @@ def budget_total_and_balance(df_inc, df_exp):
 
     net_income = total_income - net_loans
 
-    print(f"total: {net_loans}")
+    print(f"total loans: {net_loans}")
     balance = net_income - total_expenses
 
     print(
