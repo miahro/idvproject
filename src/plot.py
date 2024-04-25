@@ -128,7 +128,7 @@ def plot_simple_balance(balance):
         mode="number",
         value=balance,
         number={'font': {'color': color}},
-        title={"text": "Budget Balance"}
+        # title={"text": "Budget Balance"}
     ))
 
     return fig

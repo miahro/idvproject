@@ -10,17 +10,8 @@ import plotly.express as px
 from config import BU23_EXP_URLS, BU23_INC_URLS, BU19_EXP_URLS, \
     BU19_INC_URLS, BU14_EXP_URLS, BU14_INC_URLS
 from data_functions import normalize_budget, budget_total_and_balance
-from plot import plot_treemap, plot_sunburst, plot_simple_balance
+from plot import plot_treemap, plot_sunburst
 from data_manager import get_or_save_data
-
-# bu23_exp = build_budget(BU23_EXP_URLS)
-# bu23_inc = build_budget(BU23_INC_URLS)
-
-# bu19_exp = build_budget(BU19_EXP_URLS)
-# bu19_inc = build_budget(BU19_INC_URLS)
-
-# bu14_exp = build_budget(BU14_EXP_URLS)
-# bu14_inc = build_budget(BU14_INC_URLS)
 
 
 bu23_exp = get_or_save_data(BU23_EXP_URLS, 'data/bu23_exp.csv')
@@ -32,7 +23,6 @@ bu19_inc = get_or_save_data(BU19_INC_URLS, 'data/bu19_inc.csv')
 bu14_exp = get_or_save_data(BU14_EXP_URLS, 'data/bu14_exp.csv')
 bu14_inc = get_or_save_data(BU14_INC_URLS, 'data/bu14_inc.csv')
 
-# print(f'expenses: {bu23_exp.describe()}')
 
 bu23_exp_beuros = normalize_budget(bu23_exp, method='beuros')
 bu23_inc_beuros = normalize_budget(bu23_inc, method='beuros')
@@ -69,12 +59,13 @@ bu23_inc_median_monthly_salary = normalize_budget(
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
-    html.H1("Main Title", style={'textAlign': 'center'}),
-    html.Div("most dropdown menus for development purposes only, removed from final app", style={
-             'textAlign': 'center'}),
-
     html.Div([
+        html.H1("Budget visualization", style={
+                'textAlign': 'left', 'display': 'inline-block'}),
+
         html.Div([
+            html.Label('Normalization / budget unit',
+                       style={'font-weight': 'bold'}),
             dcc.Dropdown(
                 id='normalization-dropdown',
                 options=[
@@ -92,49 +83,13 @@ app.layout = html.Div([
                 ],
                 value='percentage'
             ),
-        ], style={'width': '32%', 'display': 'inline-block'}),
-
+        ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
-            dcc.Dropdown(
-                id='drill-down-dropdown',
-                options=[
-                    {'label': '1', 'value': 1},
-                    {'label': '2', 'value': 2},
-                    {'label': '3', 'value': 3},
-                ],
-                value=3
-            ),
-        ], style={'width': '32%', 'display': 'inline-block'}),
+            html.Label('Budget balance', style={'font-weight': 'bold'}),
+            html.P(id='balance'),
+        ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
 
-        html.Div([
-            dcc.Dropdown(
-                id='graph-type-dropdown',
-                options=[
-                    {'label': 'Treemap', 'value': 'treemap'},
-                    {'label': 'Sunburst', 'value': 'sunburst'},
-                ],
-                value='sunburst'
-            ),
-        ], style={'width': '32%', 'display': 'inline-block'}),
-    ]),
-    html.Div([
-        html.Label('Color Scale for Expenses'),
-        dcc.Dropdown(
-            id='colorscale-expenses-dropdown',
-            options=[{'label': i, 'value': i}
-                     for i in dir(px.colors.sequential)],
-            value='Viridis'
-        ),
-    ], style={'width': '32%', 'display': 'inline-block'}),
-    html.Div([
-        html.Label('Color Scale for Income'),
-        dcc.Dropdown(
-            id='colorscale-income-dropdown',
-            options=[{'label': i, 'value': i}
-                     for i in dir(px.colors.sequential)],
-            value='Viridis'
-        ),
-    ], style={'width': '32%', 'display': 'inline-block'}),
+    ], style={'display': 'flex', 'align-items': 'flex-start'}),
 
     html.Div([
         dcc.Graph(id='graph1', style={
@@ -142,10 +97,54 @@ app.layout = html.Div([
         dcc.Graph(id='graph2', style={
                   'display': 'inline-block', 'width': '49%'}),
     ]),
+
+    html.Div("Below dropdown menus for development purposes only, removed from final app", style={
+             'textAlign': 'center'}),
+
     html.Div([
-        dcc.Graph(id='balance_fig', style={
-            'display': 'block', 'width': '10%', 'margin': '10 px'}),
-    ], style={'margin-top': '10px', 'margin-bottom': '10px'}),
+        html.Label('Color Scale for Expenses'),
+        dcc.Dropdown(
+            id='colorscale-expenses-dropdown',
+            options=[{'label': i, 'value': i}
+                     for i in dir(px.colors.sequential)],
+            value='Reds_r'
+        ),
+    ], style={'width': '25%', 'display': 'inline-block'}),
+
+    html.Div([
+        html.Label('Color Scale for Income'),
+        dcc.Dropdown(
+            id='colorscale-income-dropdown',
+            options=[{'label': i, 'value': i}
+                     for i in dir(px.colors.sequential)],
+            value='Greens_r'
+        ),
+    ], style={'width': '25%', 'display': 'inline-block'}),
+
+    html.Div([
+        html.Label('Drill-down level'),
+        dcc.Dropdown(
+            id='drill-down-dropdown',
+            options=[
+                {'label': '1', 'value': 1},
+                {'label': '2', 'value': 2},
+                {'label': '3', 'value': 3},
+            ],
+            value=2
+        ),
+    ], style={'width': '15%', 'display': 'inline-block'}),
+
+    html.Div([
+        html.Label('Graph type'),
+        dcc.Dropdown(
+            id='graph-type-dropdown',
+            options=[
+                {'label': 'Treemap', 'value': 'treemap'},
+                {'label': 'Sunburst', 'value': 'sunburst'},
+            ],
+            value='treemap'
+        ),
+    ], style={'width': '25%', 'display': 'inline-block'}),
 
 
 ])
@@ -156,7 +155,8 @@ print(px.colors.sequential)
 @ app.callback(
     [Output('graph1', 'figure'),
      Output('graph2', 'figure'),
-     Output('balance_fig', 'figure')],
+     Output('balance', 'children'),
+     Output('balance', 'style')],
     [Input('normalization-dropdown', 'value'),
      Input('drill-down-dropdown', 'value'),
      Input('graph-type-dropdown', 'value'),
@@ -226,22 +226,14 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
         height=1000,
     )
 
-    net_income, total_expenses, balance = budget_total_and_balance(
+    _, _, balance = budget_total_and_balance(
         df_inc, df_exp)
 
-    print(
-        f'net income: {net_income}, total expenses: {total_expenses}, balance: {balance}')
+    balance_str = f'{balance:.2f}'
+    balance_color = {'color': 'green' if balance >=
+                     0 else 'red', 'font-weight': 'bold'}
 
-    # balance_fig = plot_balance_bar(net_income, total_expenses, balance)
-    balance_fig = plot_simple_balance(balance)
-    balance_fig.update_layout(
-        autosize=True,
-        width=400,
-        height=400,
-    )
-    # balance_fig = plot_balance_bar(net_income, total_expenses)
-
-    return fig1, fig2, balance_fig
+    return fig1, fig2, balance_str, balance_color
 
 
 if __name__ == '__main__':
