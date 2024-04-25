@@ -5,7 +5,7 @@ import pandas as pd
 from data_functions import build_budget
 
 
-def get_or_save_data(url_list, filename, use_saved_data=True):
+def get_or_save_data(url_list, filename):
     """
     Get data from a local file or online source.
 
@@ -13,6 +13,8 @@ def get_or_save_data(url_list, filename, use_saved_data=True):
     load the DataFrame from the file. Otherwise, get the data from the online
     source and save it to a local file.
     """
+
+    use_saved_data = os.getenv('USE_SAVED_DATA', 'True') == 'True'
 
     if use_saved_data and os.path.exists(filename):
         print(f"Loading data from {filename}")
