@@ -1,16 +1,11 @@
 """Module for plotly plot functions"""
 
-import plotly.graph_objects as go
-import numpy as np
 import plotly.express as px
 import pandas as pd
 
 
 import plotly.graph_objects as go  # pylint: disable=C0412
 from plotly.subplots import make_subplots
-
-from pywaffle import Waffle
-import matplotlib.pyplot as plt
 
 
 def plot_treemap(df, path, col_scale, drill_down_level=3):
@@ -36,6 +31,7 @@ def plot_bar(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly bar chart from a DataFrame.
     """
+    print(drill_down_level)
 
     color_scale = getattr(px.colors.sequential, col_scale)
 
@@ -56,9 +52,7 @@ def plot_bar(df, path, col_scale, drill_down_level=3):
     )
 
     fig.update_layout(
-        xaxis=dict(
-            showticklabels=False
-        )
+        xaxis={'showticklabels': False},
     )
 
     return fig
@@ -68,7 +62,7 @@ def plot_bubble(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly bubble chart from a DataFrame.
     """
-
+    print(drill_down_level)
     color_scale = getattr(px.colors.sequential, col_scale)
 
     df_agg = df.groupby(path[0])['total'].sum().reset_index()
@@ -78,7 +72,7 @@ def plot_bubble(df, path, col_scale, drill_down_level=3):
                      text=df_agg['total'].apply(lambda x: f'Total: {x:.2f}'))
 
     fig.update_traces(
-        marker=dict(sizemode='area', sizeref=0.005, sizemin=4),
+        marker={'sizemode': 'area', 'sizeref': 0.005, 'sizemin': 4},
         texttemplate='%{x} <br> Total: %{y:.2f}',
         textposition='top center',
         textfont_size=12
@@ -90,9 +84,7 @@ def plot_bubble(df, path, col_scale, drill_down_level=3):
     )
 
     fig.update_layout(
-        xaxis=dict(
-            showticklabels=False
-        )
+        xaxis={'showticklabels': False},
     )
 
     return fig
@@ -102,6 +94,7 @@ def plot_pie(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly pie chart from a DataFrame.
     """
+    print(drill_down_level)
 
     df_agg = df.groupby(path[0])['total'].sum().reset_index()
 

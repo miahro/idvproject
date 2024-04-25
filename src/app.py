@@ -168,7 +168,7 @@ print(px.colors.sequential)
 )
 def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
     """Method to update graphs based on user drop down selections"""
-    # pylint: disable=R0912
+    # pylint: disable=R0912, R0915
     if normalization == 'percentage':
         df_exp = bu23_exp_percentage
         df_inc = bu23_inc_percentage
