@@ -13,6 +13,7 @@ plotly = "^5.20.0"
 dash = "^2.16.1"
 bs4 = "^0.0.2"
 python-dotenv = "^1.0.1"
+pywaffle = "^1.1.0"
 
 
 [tool.poetry.group.dev.dependencies]

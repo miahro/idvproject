@@ -1,11 +1,16 @@
 """Module for plotly plot functions"""
 
+import plotly.graph_objects as go
+import numpy as np
 import plotly.express as px
 import pandas as pd
 
 
 import plotly.graph_objects as go  # pylint: disable=C0412
 from plotly.subplots import make_subplots
+
+from pywaffle import Waffle
+import matplotlib.pyplot as plt
 
 
 def plot_treemap(df, path, col_scale, drill_down_level=3):
@@ -27,19 +32,107 @@ def plot_treemap(df, path, col_scale, drill_down_level=3):
     return fig
 
 
+def plot_bar(df, path, col_scale, drill_down_level=3):
+    """
+    Create a Plotly bar chart from a DataFrame.
+    """
+
+    color_scale = getattr(px.colors.sequential, col_scale)
+
+    df_agg = df.groupby(path[0])['total'].sum().reset_index()
+
+    fig = px.bar(df_agg, x=path[0], y='total',
+                 color='total', color_continuous_scale=color_scale)
+
+    fig.update_traces(
+        texttemplate='%{x} <br> Total: %{y:.2f}',
+        textposition='auto',
+        textfont_size=12
+    )
+
+    fig.update_traces(
+        hovertemplate='%{x} <br> Total: %{y:.2f}',
+        textfont_size=12
+    )
+
+    fig.update_layout(
+        xaxis=dict(
+            showticklabels=False
+        )
+    )
+
+    return fig
+
+
+def plot_bubble(df, path, col_scale, drill_down_level=3):
+    """
+    Create a Plotly bubble chart from a DataFrame.
+    """
+
+    color_scale = getattr(px.colors.sequential, col_scale)
+
+    df_agg = df.groupby(path[0])['total'].sum().reset_index()
+
+    fig = px.scatter(df_agg, x=path[0], y='total', size='total',
+                     color='total', color_continuous_scale=color_scale,
+                     text=df_agg['total'].apply(lambda x: f'Total: {x:.2f}'))
+
+    fig.update_traces(
+        marker=dict(sizemode='area', sizeref=0.005, sizemin=4),
+        texttemplate='%{x} <br> Total: %{y:.2f}',
+        textposition='top center',
+        textfont_size=12
+    )
+
+    fig.update_traces(
+        hovertemplate='%{x} <br> Total: %{y:.2f}',
+        textfont_size=12
+    )
+
+    fig.update_layout(
+        xaxis=dict(
+            showticklabels=False
+        )
+    )
+
+    return fig
+
+
+def plot_pie(df, path, col_scale, drill_down_level=3):
+    """
+    Create a Plotly pie chart from a DataFrame.
+    """
+
+    df_agg = df.groupby(path[0])['total'].sum().reset_index()
+
+    fig = go.Figure(data=go.Pie(
+        labels=df_agg[path[0]],
+        values=df_agg['total'],
+        textinfo='label+value',
+        insidetextorientation='radial',
+        domain={'x': [0.1, 0.9], 'y': [0.1, 0.9]},
+        scalegroup='one',
+    ))
+
+    color_scale = getattr(px.colors.sequential, col_scale)
+
+    fig.update_layout(
+        showlegend=False,
+        colorway=color_scale,
+        uniformtext_minsize=12,
+        uniformtext_mode='hide',
+    )
+
+    return fig
+
+
 def plot_sunburst(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly sunburst plot from a DataFrame.
     """
 
-    # df = df_in.copy()
-
     path = path[0:drill_down_level]
     color_scale = getattr(px.colors.sequential, col_scale)
-
-    # fig = px.sunburst(df, path=path, values='total',
-    #                   color_discrete_sequence=color_scale)
-    # df[path[-1]] = df[path[-1]] + '<br>Total: ' + df['total'].astype(str)
 
     fig = px.sunburst(df, path=path, values='total',
                       color_discrete_sequence=color_scale)
@@ -47,22 +140,6 @@ def plot_sunburst(df, path, col_scale, drill_down_level=3):
     fig.update_traces(
         hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
     return fig
-
-
-# def plot_balance_bar(net_income, total_expenses, balance):
-#     """
-#     Create a Plotly bar plot for the balance.
-#     """
-
-#     fig = make_subplots(rows=1, cols=1)
-
-#     fig.add_trace(go.Bar(x=['Net Income', 'Total Expenses', 'Balance'],
-#                          y=[net_income, total_expenses, balance],
-#                               marker_color='rgb(158,202,225)'))
-
-#     fig.update_layout(title_text='Balance', font_size=10)
-
-#     return fig
 
 
 def plot_balance_gauge(net_income, total_expenses, balance):

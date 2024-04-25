@@ -10,7 +10,7 @@ import plotly.express as px
 from config import BU23_EXP_URLS, BU23_INC_URLS, BU19_EXP_URLS, \
     BU19_INC_URLS, BU14_EXP_URLS, BU14_INC_URLS
 from data_functions import normalize_budget, budget_total_and_balance
-from plot import plot_treemap, plot_sunburst
+from plot import plot_treemap, plot_sunburst, plot_pie, plot_bar, plot_bubble
 from data_manager import get_or_save_data
 
 
@@ -93,9 +93,9 @@ app.layout = html.Div([
 
     html.Div([
         dcc.Graph(id='graph1', style={
-                  'display': 'inline-block', 'width': '49%'}),
+                  'display': 'inline-block', 'width': '48%', 'padding-right': '1%'}),
         dcc.Graph(id='graph2', style={
-                  'display': 'inline-block', 'width': '49%'}),
+                  'display': 'inline-block', 'width': '48%', 'padding-left': '1%'}),
     ]),
 
     html.Div("Below dropdown menus for development purposes only, removed from final app", style={
@@ -141,6 +141,9 @@ app.layout = html.Div([
             options=[
                 {'label': 'Treemap', 'value': 'treemap'},
                 {'label': 'Sunburst', 'value': 'sunburst'},
+                {'label': 'Pie', 'value': 'pie'},
+                {'label': 'Bar', 'value': 'bar'},
+                {'label': 'Bubble', 'value': 'bubble'}
             ],
             value='treemap'
         ),
@@ -210,6 +213,21 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
         fig1 = plot_sunburst(
             df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
         fig2 = plot_sunburst(
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    elif graph_type == 'pie':
+        fig1 = plot_pie(
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+        fig2 = plot_pie(
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    elif graph_type == 'bar':
+        fig1 = plot_bar(
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+        fig2 = plot_bar(
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    elif graph_type == 'bubble':
+        fig1 = plot_bubble(
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+        fig2 = plot_bubble(
             df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
     else:
         raise ValueError("Invalid graph type.")
