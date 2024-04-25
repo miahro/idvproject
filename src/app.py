@@ -1,5 +1,8 @@
 """Module for Dash app."""
 
+import os
+from dotenv import load_dotenv
+
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
@@ -242,5 +245,12 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
 
 
 if __name__ == '__main__':
-    # app.run_server(host='0.0.0.0', port=8050)
-    app.run_server(debug=True)
+    load_dotenv()
+    dep_env = os.getenv('PRODUCTION', 'True') == 'True'
+    print(f'deployment environment: {dep_env}')
+    if dep_env:
+        print('running in production mode')
+        app.run_server(host='0.0.0.0', port=8050)
+    else:
+        print('running in development mode')
+        app.run_server(debug=True)
