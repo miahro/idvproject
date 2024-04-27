@@ -8,7 +8,7 @@ import plotly.graph_objects as go  # pylint: disable=C0412
 from plotly.subplots import make_subplots
 
 
-def plot_treemap(df, path, col_scale, drill_down_level=3):
+def plot_treemap(df, path, col_scale, drill_down_level=3, title='testiotsikko'):
     """
     Create a Plotly treemap plot from a DataFrame.
     """
@@ -19,10 +19,12 @@ def plot_treemap(df, path, col_scale, drill_down_level=3):
     fig = px.treemap(df, path=path, values='total', custom_data=[
                      'total'], color_discrete_sequence=color_scale)
     fig.update_traces(
-        texttemplate='%{label} <br> Total: %{customdata[0]:.2f}',
+        texttemplate='%{label}: %{customdata[0]:.2f}',
         textposition='middle center', textfont_size=12)
     fig.update_traces(
         hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
+
+    fig.update_layout(title_text=title)
 
     return fig
 

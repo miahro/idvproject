@@ -7,26 +7,14 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.express as px
-from config import BU23_EXP_URLS, BU23_INC_URLS, BU19_EXP_URLS, \
-    BU19_INC_URLS, BU14_EXP_URLS, BU14_INC_URLS
-from data_functions import normalize_budget, budget_total_and_balance, normalize_budget_data
+from data_manager import normalized_budgets_dict
+from data_functions import budget_total_and_balance
 from plot import plot_treemap, plot_sunburst, plot_pie, plot_bar, plot_bubble, plot_icicle
-from data_manager import get_or_save_data
+# from data_manager import get_or_save_data
 
 
-bu23_exp = get_or_save_data(BU23_EXP_URLS, 'data/bu23_exp.csv')
-bu23_inc = get_or_save_data(BU23_INC_URLS, 'data/bu23_inc.csv')
+normalized_budgets = normalized_budgets_dict()
 
-bu19_exp = get_or_save_data(BU19_EXP_URLS, 'data/bu19_exp.csv')
-bu19_inc = get_or_save_data(BU19_INC_URLS, 'data/bu19_inc.csv')
-
-bu14_exp = get_or_save_data(BU14_EXP_URLS, 'data/bu14_exp.csv')
-bu14_inc = get_or_save_data(BU14_INC_URLS, 'data/bu14_inc.csv')
-
-
-bu23_normalized = normalize_budget_data(bu23_exp, bu23_inc)
-bu19_normalized = normalize_budget_data(bu19_exp, bu19_inc)
-bu14_normalized = normalize_budget_data(bu14_exp, bu14_inc)
 
 app = dash.Dash(__name__)
 
@@ -51,7 +39,7 @@ app.layout = html.Div([
                     {'label': 'Pizzas per capita', 'value': 'pizzas'},
                     {'label': 'Median Monthly Salaries per working age capita',
                         'value': 'median_monthly_salary'},
-                    {'label': 'Billions of Euros', 'value': 'Beuros'}
+                    {'label': 'Billions of Euros', 'value': 'beuros'}
                 ],
                 value='percentage'
             ),
@@ -60,8 +48,29 @@ app.layout = html.Div([
             html.Label('Budget balance', style={'font-weight': 'bold'}),
             html.P(id='balance'),
         ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
-
+        # html.Div([
+        #     html.Label('Budget Year', style={'font-weight': 'bold'}),
+        #     dcc.Dropdown(
+        #         id='year-dropdown',
+        #         options=[{'label': i, 'value': i} for i in range(2014, 2025)],
+        #         value=2023
+        #     )
+        # ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
+        html.Div([
+            html.Label('Budget Year', style={'font-weight': 'bold'}),
+            dcc.Slider(
+                id='year-slider',
+                min=2014,
+                max=2024,
+                step=1,
+                value=2024,
+                marks={i: str(i) for i in range(2014, 2025)},
+            )
+        ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
     ], style={'display': 'flex', 'align-items': 'flex-start'}),
+
+
+
 
     html.Div([
         dcc.Graph(id='graph1', style={
@@ -106,6 +115,7 @@ app.layout = html.Div([
         ),
     ], style={'width': '15%', 'display': 'inline-block'}),
 
+
     html.Div([
         html.Label('Graph type'),
         dcc.Dropdown(
@@ -133,20 +143,30 @@ print(px.colors.sequential)
      Output('graph2', 'figure'),
      Output('balance', 'children'),
      Output('balance', 'style')],
-    [Input('normalization-dropdown', 'value'),
+    [Input('year-slider', 'value'),
+     Input('normalization-dropdown', 'value'),
      Input('drill-down-dropdown', 'value'),
      Input('graph-type-dropdown', 'value'),
      Input('colorscale-expenses-dropdown', 'value'),
      Input('colorscale-income-dropdown', 'value')]
 )
-def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
+# pylint: disable=R0913, C0301
+def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
     """Method to update graphs based on user drop down selections"""
     # pylint: disable=R0912, R0915
 
-    df_exp = bu23_normalized[f'exp_{normalization}']
-    df_inc = bu23_normalized[f'inc_{normalization}']
+    df_exp = normalized_budgets[str(year)][f'exp_{normalization}']
+    df_inc = normalized_budgets[str(year)][f'inc_{normalization}']
 
+    print(f'chosen year {year}')
     print(f'chosen normalization {normalization}')
+
+    _, _, balance = budget_total_and_balance(
+        df_inc, df_exp)
+
+    balance_str = f'{balance:.2f}'
+    balance_color = {'color': 'green' if balance >=
+                     0 else 'red', 'font-weight': 'bold'}
 
     path_exp = ['Pääluokan nimi', 'Menoluvun nimi', 'Menomomentin nimi']
     path_inc = ['Osaston nimi', 'Tuloluvun nimi', 'Tulomomentin nimi']
@@ -195,13 +215,6 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
         width=1000,
         height=900,
     )
-
-    _, _, balance = budget_total_and_balance(
-        df_inc, df_exp)
-
-    balance_str = f'{balance:.2f}'
-    balance_color = {'color': 'green' if balance >=
-                     0 else 'red', 'font-weight': 'bold'}
 
     return fig1, fig2, balance_str, balance_color
 

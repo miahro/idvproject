@@ -22,6 +22,11 @@ def filter_csv_links(links):
     return csv_lnks
 
 
+WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2024/tae'
+               '/eduskunnanKirjelma/2024-tae-eduskunnanKirjelma.html'
+               )
+
+
 # WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2023/tae'
 #                '/eduskunnanKirjelma/2023-tae-eduskunnanKirjelma.html'
 #                )
@@ -30,9 +35,44 @@ def filter_csv_links(links):
 #                '/eduskunnanKirjelma/2019-tae-eduskunnanKirjelma.html'
 #                )
 
-WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2014/tae'
-               '/eduskunnanKirjelma/2014-tae-eduskunnanKirjelma.html'
-               )
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2014/tae'
+#                '/eduskunnanKirjelma/2014-tae-eduskunnanKirjelma.html'
+#                )
+
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2024/tae'
+#                '/eduskunnanKirjelma/2024-tae-eduskunnanKirjelma.html'
+#                )
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2022/tae'
+#                '/eduskunnanKirjelma/2022-tae-eduskunnanKirjelma.html'
+#                )
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2021/tae'
+#                '/eduskunnanKirjelma/2021-tae-eduskunnanKirjelma.html'
+#                )
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2020/tae'
+#                '/eduskunnanKirjelma/2020-tae-eduskunnanKirjelma.html'
+#                )
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2018/tae'
+#                '/eduskunnanKirjelma/2018-tae-eduskunnanKirjelma.html'
+#                )
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2017/tae'
+#                '/eduskunnanKirjelma/2017-tae-eduskunnanKirjelma.html'
+#                )
+
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2016/tae'
+#                '/eduskunnanKirjelma/2016-tae-eduskunnanKirjelma.html'
+#                )
+
+
+# WEBPAGE_URL = ('https://budjetti.vm.fi/indox/opendata/2015/tae'
+#                '/eduskunnanKirjelma/2015-tae-eduskunnanKirjelma.html'
+#                )
 
 all_links = extract_links(WEBPAGE_URL)
 

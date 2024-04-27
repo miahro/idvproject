@@ -1,6 +1,8 @@
 """Module for data functions."""
 
+
 import pandas as pd
+
 from norm_factors import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
     TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
 
