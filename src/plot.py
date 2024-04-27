@@ -27,6 +27,31 @@ def plot_treemap(df, path, col_scale, drill_down_level=3):
     return fig
 
 
+def plot_icicle(df, path, col_scale, drill_down_level=3):
+    """
+    Create a Plotly icicle plot from a DataFrame.
+    """
+
+    path = path[0:drill_down_level]
+    color_scale = getattr(px.colors.sequential, col_scale)
+
+    # Group df by path and check if any group's 'total' sum is zero
+    grouped = df.groupby(path)['total'].sum()
+    if any(grouped == 0):
+        raise ValueError("One or more groups have a 'total' sum of zero.")
+
+    fig = px.icicle(df, path=path, values='total', color='total',
+                    color_continuous_scale=color_scale)
+
+    fig.update_traces(
+        texttemplate='%{label} <br> Total: %{value:.2f}',
+        textposition='middle center', textfont_size=12)
+    fig.update_traces(
+        hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
+
+    return fig
+
+
 def plot_bar(df, path, col_scale, drill_down_level=3):
     """
     Create a Plotly bar chart from a DataFrame.

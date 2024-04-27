@@ -9,8 +9,8 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 from config import BU23_EXP_URLS, BU23_INC_URLS, BU19_EXP_URLS, \
     BU19_INC_URLS, BU14_EXP_URLS, BU14_INC_URLS
-from data_functions import normalize_budget, budget_total_and_balance
-from plot import plot_treemap, plot_sunburst, plot_pie, plot_bar, plot_bubble
+from data_functions import normalize_budget, budget_total_and_balance, normalize_budget_data
+from plot import plot_treemap, plot_sunburst, plot_pie, plot_bar, plot_bubble, plot_icicle
 from data_manager import get_or_save_data
 
 
@@ -24,37 +24,9 @@ bu14_exp = get_or_save_data(BU14_EXP_URLS, 'data/bu14_exp.csv')
 bu14_inc = get_or_save_data(BU14_INC_URLS, 'data/bu14_inc.csv')
 
 
-bu23_exp_beuros = normalize_budget(bu23_exp, method='beuros')
-bu23_inc_beuros = normalize_budget(bu23_inc, method='beuros')
-
-bu23_exp_percentage = normalize_budget(bu23_exp, method='percentage')
-bu23_inc_percentage = normalize_budget(bu23_inc, method='percentage')
-
-bu23_exp_capita = normalize_budget(bu23_exp, method='per_capita')
-bu23_inc_capita = normalize_budget(bu23_inc, method='per_capita')
-
-bu23_exp_working_age_capita = normalize_budget(
-    bu23_exp, method='per_working_age_capita')
-bu23_inc_working_age_capita = normalize_budget(
-    bu23_inc, method='per_working_age_capita')
-
-bu23_exp_gdp = normalize_budget(bu23_exp, method='gdp')
-bu23_inc_gdp = normalize_budget(bu23_inc, method='gdp')
-
-bu23_exp_big_mac = normalize_budget(bu23_exp, method='big_mac')
-bu23_inc_big_mac = normalize_budget(bu23_inc, method='big_mac')
-
-bu23_exp_milk = normalize_budget(bu23_exp, method='milk_cartons')
-bu23_inc_milk = normalize_budget(bu23_inc, method='milk_cartons')
-
-bu23_exp_pizzas = normalize_budget(bu23_exp, method='pizzas')
-bu23_inc_pizzas = normalize_budget(bu23_inc, method='pizzas')
-
-bu23_exp_median_monthly_salary = normalize_budget(
-    bu23_exp, method='median_monthly_salary')
-bu23_inc_median_monthly_salary = normalize_budget(
-    bu23_inc, method='median_monthly_salary')
-
+bu23_normalized = normalize_budget_data(bu23_exp, bu23_inc)
+bu19_normalized = normalize_budget_data(bu19_exp, bu19_inc)
+bu14_normalized = normalize_budget_data(bu14_exp, bu14_inc)
 
 app = dash.Dash(__name__)
 
@@ -143,7 +115,8 @@ app.layout = html.Div([
                 {'label': 'Sunburst', 'value': 'sunburst'},
                 {'label': 'Pie', 'value': 'pie'},
                 {'label': 'Bar', 'value': 'bar'},
-                {'label': 'Bubble', 'value': 'bubble'}
+                {'label': 'Bubble', 'value': 'bubble'},
+                {'label': 'Icicle', 'value': 'icicle'}
             ],
             value='treemap'
         ),
@@ -169,35 +142,9 @@ print(px.colors.sequential)
 def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
     """Method to update graphs based on user drop down selections"""
     # pylint: disable=R0912, R0915
-    if normalization == 'percentage':
-        df_exp = bu23_exp_percentage
-        df_inc = bu23_inc_percentage
-    elif normalization == 'per_capita':
-        df_exp = bu23_exp_capita
-        df_inc = bu23_inc_capita
-    elif normalization == 'per_working_age_capita':
-        df_exp = bu23_exp_working_age_capita
-        df_inc = bu23_inc_working_age_capita
-    elif normalization == 'gdp':
-        df_exp = bu23_exp_gdp
-        df_inc = bu23_inc_gdp
-    elif normalization == 'big_mac':
-        df_exp = bu23_exp_big_mac
-        df_inc = bu23_inc_big_mac
-    elif normalization == 'milk_cartons':
-        df_exp = bu23_exp_milk
-        df_inc = bu23_inc_milk
-    elif normalization == 'pizzas':
-        df_exp = bu23_exp_pizzas
-        df_inc = bu23_inc_pizzas
-    elif normalization == 'median_monthly_salary':
-        df_exp = bu23_exp_median_monthly_salary
-        df_inc = bu23_inc_median_monthly_salary
-    elif normalization == 'Beuros':
-        df_exp = bu23_exp_beuros
-        df_inc = bu23_inc_beuros
-    else:
-        raise ValueError("Invalid normalization method.")
+
+    df_exp = bu23_normalized[f'exp_{normalization}']
+    df_inc = bu23_normalized[f'inc_{normalization}']
 
     print(f'chosen normalization {normalization}')
 
@@ -228,6 +175,11 @@ def update_graph(normalization, drilldown, graph_type, colorscale_expenses, colo
         fig1 = plot_bubble(
             df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
         fig2 = plot_bubble(
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    elif graph_type == 'icicle':
+        fig1 = plot_icicle(
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+        fig2 = plot_icicle(
             df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
     else:
         raise ValueError("Invalid graph type.")

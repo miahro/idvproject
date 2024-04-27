@@ -148,3 +148,16 @@ def budget_total_and_balance(df_inc, df_exp):
     )
 
     return net_income, total_expenses, balance
+
+
+def normalize_budget_data(budget_exp, budget_inc):
+    """Normalize budget data using various methods."""
+    methods = ['beuros', 'percentage', 'per_capita', 'per_working_age_capita',
+               'gdp', 'big_mac', 'milk_cartons', 'pizzas', 'median_monthly_salary']
+    normalized_budgets = {}
+    for method in methods:
+        normalized_budgets[f'exp_{method}'] = normalize_budget(
+            budget_exp, method=method)
+        normalized_budgets[f'inc_{method}'] = normalize_budget(
+            budget_inc, method=method)
+    return normalized_budgets
