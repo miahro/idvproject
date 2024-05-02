@@ -21,9 +21,17 @@ app.title = 'Finnish State Budget'
 
 app.layout = html.Div([
     html.Div([
-        html.H1("Budget visualization", style={
-                'textAlign': 'left', 'display': 'inline-block'}),
-
+        html.Div([
+            # Remove top margin
+            html.P("State budget", style={
+                   'margin-top': '0', 'font-weight': 'bold'}),
+            html.Img(src="https://flagcdn.com/w320/fi.png",
+                     height="33px", width="54px"),
+        ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top'}),
+        html.Div([
+            html.Label('Budget balance', style={'font-weight': 'bold'}),
+            html.P(id='balance'),
+        ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
             html.Label('Normalization / budget unit',
                        style={'font-weight': 'bold'}),
@@ -45,10 +53,7 @@ app.layout = html.Div([
                 value='beuros'
             ),
         ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
-        html.Div([
-            html.Label('Budget balance', style={'font-weight': 'bold'}),
-            html.P(id='balance'),
-        ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
+
         html.Div([
             html.Label('Budget Year', style={'font-weight': 'bold'}),
             dcc.Slider(
