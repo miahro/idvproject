@@ -13,11 +13,22 @@ def plot_treemap(df, path, col_scale, drill_down_level=3, title='testiotsikko'):
     Create a Plotly treemap plot from a DataFrame.
     """
 
+    df = df.copy()
+    df.insert(0, "Grand total", "Budget total")
+
     path = path[0:drill_down_level]
     color_scale = getattr(px.colors.sequential, col_scale)
 
+    path.insert(0, 'Grand total')
+
+    print(f"in plot_treemap, print path {path}")
+
     fig = px.treemap(df, path=path, values='total', custom_data=[
                      'total'], color_discrete_sequence=color_scale)
+
+    # fig = px.treemap(df, path=path, values='total', custom_data=[
+    #                  'total'], color_discrete_sequence=color_scale)
+
     fig.update_traces(
         texttemplate='%{label}: %{customdata[0]:.2f}',
         textposition='middle center', textfont_size=12)

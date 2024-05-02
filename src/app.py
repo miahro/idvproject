@@ -47,7 +47,7 @@ app.layout = html.Div([
         html.Div([
             html.Label('Budget balance', style={'font-weight': 'bold'}),
             html.P(id='balance'),
-        ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
+        ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
         # html.Div([
         #     html.Label('Budget Year', style={'font-weight': 'bold'}),
         #     dcc.Dropdown(
@@ -67,16 +67,26 @@ app.layout = html.Div([
                 marks={i: str(i) for i in range(2014, 2025)},
             )
         ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
+        html.Div([
+            dcc.RadioItems(
+                id='income-expense-radio',
+                options=[
+                    {'label': 'Income', 'value': 'income'},
+                    {'label': 'Expenses', 'value': 'expenses'},
+                ],
+                value='income'
+            ),
+        ], style={'width': '10%', 'display': 'inline-block'}),
     ], style={'display': 'flex', 'align-items': 'flex-start'}),
 
 
 
 
     html.Div([
-        dcc.Graph(id='graph1', style={
-                  'display': 'inline-block', 'width': '48%', 'padding-right': '1%'}),
-        dcc.Graph(id='graph2', style={
-                  'display': 'inline-block', 'width': '48%', 'padding-left': '1%'}),
+        dcc.Graph(id='graph', style={
+                  'display': 'inline-block', 'width': '98%', 'padding-right': '1%'}),
+        # dcc.Graph(id='graph2', style={
+        #           'display': 'inline-block', 'width': '48%', 'padding-left': '1%'}),
     ]),
 
     html.Div("Below dropdown menus for development purposes only, removed from final app", style={
@@ -139,8 +149,8 @@ print(px.colors.sequential)
 
 
 @ app.callback(
-    [Output('graph1', 'figure'),
-     Output('graph2', 'figure'),
+    [Output('graph', 'figure'),
+     # Output('graph2', 'figure'),
      Output('balance', 'children'),
      Output('balance', 'style')],
     [Input('year-slider', 'value'),
@@ -148,10 +158,11 @@ print(px.colors.sequential)
      Input('drill-down-dropdown', 'value'),
      Input('graph-type-dropdown', 'value'),
      Input('colorscale-expenses-dropdown', 'value'),
-     Input('colorscale-income-dropdown', 'value')]
+     Input('colorscale-income-dropdown', 'value'),
+     Input('income-expense-radio', 'value')]
 )
 # pylint: disable=R0913, C0301
-def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses, colorscale_income):
+def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses, colorscale_income, income_expense):
     """Method to update graphs based on user drop down selections"""
     # pylint: disable=R0912, R0915
 
@@ -160,6 +171,7 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
 
     print(f'chosen year {year}')
     print(f'chosen normalization {normalization}')
+    print(f'chonse income-expense {income_expense}')
 
     _, _, balance = budget_total_and_balance(
         df_inc, df_exp)
@@ -206,17 +218,22 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
 
     fig1.update_layout(
         autosize=False,
-        width=1000,
+        width=1900,
         height=900,
     )
 
     fig2.update_layout(
         autosize=False,
-        width=1000,
+        width=1900,
         height=900,
     )
 
-    return fig1, fig2, balance_str, balance_color
+    if income_expense == 'income':
+        return fig2, balance_str, balance_color
+    else:
+        return fig1, balance_str, balance_color
+
+    # return fig1, fig2, balance_str, balance_color
 
 
 if __name__ == '__main__':
