@@ -8,8 +8,8 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.express as px
 from data_manager import normalized_budgets_dict
-from data_functions import budget_total_and_balance
-from plot import plot_treemap, plot_sunburst, plot_pie, plot_bar, plot_bubble, plot_icicle
+from data_functions import budget_total_and_balance, form_title
+from plot import plot_treemap, plot_sunburst
 # from data_manager import get_or_save_data
 
 
@@ -30,8 +30,8 @@ app.layout = html.Div([
                 id='normalization-dropdown',
                 options=[
                     {'label': 'Per cent from total budget', 'value': 'percentage'},
-                    {'label': 'Per Capita', 'value': 'per_capita'},
-                    {'label': 'Per Working Age Capita',
+                    {'label': 'Euros per Capita', 'value': 'per_capita'},
+                    {'label': 'Euros per Working Age Capita',
                         'value': 'per_working_age_capita'},
                     {'label': 'Per cent of GDP', 'value': 'gdp'},
                     {'label': 'Big Macs per capita', 'value': 'big_mac'},
@@ -43,7 +43,7 @@ app.layout = html.Div([
                 ],
                 value='percentage'
             ),
-        ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
+        ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
             html.Label('Budget balance', style={'font-weight': 'bold'}),
             html.P(id='balance'),
@@ -77,6 +77,18 @@ app.layout = html.Div([
                 value='income'
             ),
         ], style={'width': '10%', 'display': 'inline-block'}),
+        html.Div([
+            html.Label('Details'),
+            dcc.RadioItems(
+                id='drill-down-radioitems',
+                options=[
+                    {'label': 'Low', 'value': 2},
+                    {'label': 'Medium', 'value': 3},
+                    {'label': 'Detailed', 'value': 4},
+                ],
+                value=4
+            ),
+        ], style={'width': '15%', 'display': 'inline-block'}),
     ], style={'display': 'flex', 'align-items': 'flex-start'}),
 
 
@@ -112,18 +124,18 @@ app.layout = html.Div([
         ),
     ], style={'width': '25%', 'display': 'inline-block'}),
 
-    html.Div([
-        html.Label('Drill-down level'),
-        dcc.Dropdown(
-            id='drill-down-dropdown',
-            options=[
-                {'label': '1', 'value': 1},
-                {'label': '2', 'value': 2},
-                {'label': '3', 'value': 3},
-            ],
-            value=2
-        ),
-    ], style={'width': '15%', 'display': 'inline-block'}),
+    # html.Div([
+    #     html.Label('Drill-down level'),
+    #     dcc.Dropdown(
+    #         id='drill-down-dropdown',
+    #         options=[
+    #             {'label': '1', 'value': 1},
+    #             {'label': '2', 'value': 2},
+    #             {'label': '3', 'value': 3},
+    #         ],
+    #         value=2
+    #     ),
+    # ], style={'width': '15%', 'display': 'inline-block'}),
 
 
     html.Div([
@@ -133,10 +145,6 @@ app.layout = html.Div([
             options=[
                 {'label': 'Treemap', 'value': 'treemap'},
                 {'label': 'Sunburst', 'value': 'sunburst'},
-                {'label': 'Pie', 'value': 'pie'},
-                {'label': 'Bar', 'value': 'bar'},
-                {'label': 'Bubble', 'value': 'bubble'},
-                {'label': 'Icicle', 'value': 'icicle'}
             ],
             value='treemap'
         ),
@@ -155,7 +163,7 @@ print(px.colors.sequential)
      Output('balance', 'style')],
     [Input('year-slider', 'value'),
      Input('normalization-dropdown', 'value'),
-     Input('drill-down-dropdown', 'value'),
+     Input('drill-down-radioitems', 'value'),
      Input('graph-type-dropdown', 'value'),
      Input('colorscale-expenses-dropdown', 'value'),
      Input('colorscale-income-dropdown', 'value'),
@@ -173,46 +181,51 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
     print(f'chosen normalization {normalization}')
     print(f'chonse income-expense {income_expense}')
 
-    _, _, balance = budget_total_and_balance(
+    total_income, net_income, total_expenses, balance = budget_total_and_balance(
         df_inc, df_exp)
 
     balance_str = f'{balance:.2f}'
     balance_color = {'color': 'green' if balance >=
                      0 else 'red', 'font-weight': 'bold'}
 
-    path_exp = ['Pääluokan nimi', 'Menoluvun nimi', 'Menomomentin nimi']
-    path_inc = ['Osaston nimi', 'Tuloluvun nimi', 'Tulomomentin nimi']
+    path_exp = ['Total budget', 'Pääluokan nimi',
+                'Menoluvun nimi', 'Menomomentin nimi']
+    path_inc = ['Total budget', 'Osaston nimi',
+                'Tuloluvun nimi', 'Tulomomentin nimi']
+
+    title = form_title(year, income_expense, normalization,
+                       total_income, net_income, total_expenses)
 
     if graph_type == 'treemap':
         fig1 = plot_treemap(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown, title=title)
         fig2 = plot_treemap(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown, title=title)
     elif graph_type == 'sunburst':
         fig1 = plot_sunburst(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown, title=title)
         fig2 = plot_sunburst(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    elif graph_type == 'pie':
-        fig1 = plot_pie(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-        fig2 = plot_pie(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    elif graph_type == 'bar':
-        fig1 = plot_bar(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-        fig2 = plot_bar(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    elif graph_type == 'bubble':
-        fig1 = plot_bubble(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-        fig2 = plot_bubble(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    elif graph_type == 'icicle':
-        fig1 = plot_icicle(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-        fig2 = plot_icicle(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+            df_inc, path_inc, colorscale_income, drill_down_level=drilldown, title=title)
+    # elif graph_type == 'pie':
+    #     fig1 = plot_pie(
+    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+    #     fig2 = plot_pie(
+    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    # elif graph_type == 'bar':
+    #     fig1 = plot_bar(
+    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+    #     fig2 = plot_bar(
+    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    # elif graph_type == 'bubble':
+    #     fig1 = plot_bubble(
+    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+    #     fig2 = plot_bubble(
+    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
+    # elif graph_type == 'icicle':
+    #     fig1 = plot_icicle(
+    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
+    #     fig2 = plot_icicle(
+    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
     else:
         raise ValueError("Invalid graph type.")
 

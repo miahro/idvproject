@@ -6,6 +6,8 @@ import pandas as pd
 from norm_factors import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
     TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
 
+from constants import budget_units
+
 
 def read_csvs(url_list):
     """
@@ -173,7 +175,7 @@ def budget_total_and_balance(df_inc, df_exp):
         f'{total_expenses}, balance: {balance}'
     )
 
-    return net_income, total_expenses, balance
+    return total_income, net_income, total_expenses, balance
 
 
 def normalize_budget_data(budget_exp, budget_inc):
@@ -187,3 +189,28 @@ def normalize_budget_data(budget_exp, budget_inc):
         normalized_budgets[f'inc_{method}'] = normalize_budget(
             budget_inc, method=method)
     return normalized_budgets
+
+# pylint: disable=too-many-arguments
+
+
+def form_title(year, budget_type, normalization, total_income, net_income, total_expenses):
+    """
+    Form a title for the plot.
+    """
+
+    title = f'Budget for year {year}'
+
+    if budget_type == 'expenses':
+        title += ' - Expenses. '
+        title += f'Total expenses: {total_expenses:.2f} '
+    elif budget_type == 'income':
+        title += ' - Income. '
+        title += f'Total income: {total_income:.2f}'
+        title += f' ({budget_units[normalization]}). '
+        title += f'Net income (income without loans): {net_income:.2f} '
+    else:
+        raise ValueError("Invalid type.")
+
+    title += f' ({budget_units[normalization]})'
+
+    return title

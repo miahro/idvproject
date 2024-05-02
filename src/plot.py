@@ -8,7 +8,7 @@ import plotly.graph_objects as go  # pylint: disable=C0412
 from plotly.subplots import make_subplots
 
 
-def plot_treemap(df, path, col_scale, drill_down_level=3, title='testiotsikko'):
+def plot_treemap(df, path, col_scale, drill_down_level=4, title=""):
     """
     Create a Plotly treemap plot from a DataFrame.
     """
@@ -19,7 +19,7 @@ def plot_treemap(df, path, col_scale, drill_down_level=3, title='testiotsikko'):
     path = path[0:drill_down_level]
     color_scale = getattr(px.colors.sequential, col_scale)
 
-    path.insert(0, 'Grand total')
+    # path.insert(0, 'Grand total')
 
     print(f"in plot_treemap, print path {path}")
 
@@ -30,7 +30,7 @@ def plot_treemap(df, path, col_scale, drill_down_level=3, title='testiotsikko'):
     #                  'total'], color_discrete_sequence=color_scale)
 
     fig.update_traces(
-        texttemplate='%{label}: %{customdata[0]:.2f}',
+        # texttemplate='%{label}: %{customdata[0]:.2f}',
         textposition='middle center', textfont_size=12)
     fig.update_traces(
         hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
@@ -157,7 +157,7 @@ def plot_pie(df, path, col_scale, drill_down_level=3):
     return fig
 
 
-def plot_sunburst(df, path, col_scale, drill_down_level=3):
+def plot_sunburst(df, path, col_scale, drill_down_level=4, title=""):
     """
     Create a Plotly sunburst plot from a DataFrame.
     """
@@ -170,6 +170,8 @@ def plot_sunburst(df, path, col_scale, drill_down_level=3):
 
     fig.update_traces(
         hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
+
+    fig.update_layout(title_text=title)
     return fig
 
 

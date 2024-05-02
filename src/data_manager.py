@@ -25,8 +25,10 @@ def get_or_save_data(url_list, filename):
     else:
         print("accessing on-line data")
         df = build_budget(url_list)
-        df.insert(0, "Grand total", "Koko budjetti")
+        df.insert(0, "Total budget", "Koko budjetti")
         df.to_csv(filename, index=False)
+
+    print(df.head())
 
     return df
 
