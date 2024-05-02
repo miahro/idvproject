@@ -1,11 +1,6 @@
 """Module for plotly plot functions"""
 
 import plotly.express as px
-import pandas as pd
-
-
-import plotly.graph_objects as go  # pylint: disable=C0412
-from plotly.subplots import make_subplots
 
 
 def plot_treemap(df, path, col_scale, drill_down_level=4, title=""):
