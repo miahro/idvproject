@@ -14,7 +14,7 @@ def plot_treemap(df, path, col_scale, drill_down_level=3, title='testiotsikko'):
     """
 
     df = df.copy()
-    df.insert(0, "Grand total", "Budget total")
+    # df.insert(0, "Grand total", "Budget total")
 
     path = path[0:drill_down_level]
     color_scale = getattr(px.colors.sequential, col_scale)

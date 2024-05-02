@@ -108,26 +108,26 @@ def normalize_budget(df, method=None):
     if method == 'beuros':
         df['total'] = (df['total'] / 10**9).round(1)
     elif method == 'percentage':
-        df['total'] = (df['total'] / df['total'].sum() * 100).round(1)
+        df['total'] = df['total'] / df['total'].sum() * 100
     elif method == 'per_capita':
-        df['total'] = (df['total'] / TOTAL_CAPITA).round(1)
+        df['total'] = df['total'] / TOTAL_CAPITA
     elif method == 'per_working_age_capita':
-        df['total'] = (df['total'] / TOTAL_WORKING_AGE_CAPITA).round(1)
+        df['total'] = df['total'] / TOTAL_WORKING_AGE_CAPITA
     elif method == 'big_mac':
-        df['total'] = (df['total'] / (BIG_MAC * TOTAL_CAPITA)).round(1)
+        df['total'] = df['total'] / (BIG_MAC * TOTAL_CAPITA)
     elif method == 'gdp':
-        df['total'] = (df['total'] / GDP).round(4)
+        df['total'] = df['total'] / GDP * 100
     elif method == 'milk_cartons':
-        df['total'] = (df['total'] / (MILK_CARTON * TOTAL_CAPITA)).round(1)
+        df['total'] = df['total'] / (MILK_CARTON * TOTAL_CAPITA)
     elif method == 'pizzas':
-        df['total'] = (df['total'] / (PIZZA * TOTAL_CAPITA)).round(1)
+        df['total'] = df['total'] / (PIZZA * TOTAL_CAPITA)
     elif method == 'median_monthly_salary':
-        df['total'] = (df['total'] /
-                       (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)).round(2)
+        df['total'] = df['total'] / \
+            (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)
     else:
         raise ValueError("Invalid normalization method.")
-    # print(f'normalized with {method} method')
-    # print(df.describe())
+    print(f'normalized with {method} method')
+    print(df['total'].sum())
 
     return df
 
@@ -142,6 +142,17 @@ def budget_total_and_balance(df_inc, df_exp):
 
     total_income = df_inc['total'].sum()
     total_expenses = df_exp['total'].sum()
+
+    # print(f"total income: {total_income}, total expenses: {total_expenses}")
+
+    # print(f"df_inc:\n{df_inc}")  # print the contents of df_inc
+
+    # condition = df_inc['Tulomomentin nimi'].str.strip(
+    # ).str.startswith('Net borrowing')
+    # print(f"condition:\n{condition}")  # print the result of the condition
+
+    # print(
+    #     f"Unique values in 'Tulomomentin nimi':\n{df_inc['Tulomomentin nimi'].unique()}")
 
     # net_loans = df_inc.loc[df_inc['Tulomomentin nimi'].str.startswith(
     #     'Nettolainanotto'), 'total'].values[0]

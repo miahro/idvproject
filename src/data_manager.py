@@ -25,6 +25,7 @@ def get_or_save_data(url_list, filename):
     else:
         print("accessing on-line data")
         df = build_budget(url_list)
+        df.insert(0, "Grand total", "Koko budjetti")
         df.to_csv(filename, index=False)
 
     return df
@@ -48,7 +49,7 @@ def read_csv_to_dict(filename):
     return data_dict
 
 
-def translate_budget_items(df, column_numbers=[0, 1, 2]):  # pylint: disable=dangerous-default-value
+def translate_budget_items(df, column_numbers=[0, 1, 2, 3]):  # pylint: disable=dangerous-default-value
     """
     Translate the values in a column to English.
     """

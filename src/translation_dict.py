@@ -175,7 +175,7 @@ translations = {
   'Digitaalisen kulttuuriperinnön saatavuus ja säilyttäminen': ' Accessibility and preservation of digital cultural heritage',
   'Eräät oikeudenkäyntikulut ja korvaukset': ' Certain litigation costs and compensations',
   'Metallirahamenot': ' Coinage expenses',
-  'EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan ohjelmakaudella 2021—2027': " EU's share in internal security and migration management for the program period 2021—2027",
+  'EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan ohjelmakaudella 2021&mdash;2027': " EU's share in internal security and migration management for the program period 2021-2027",
   'Maatalousyrittäjien ja turkistuottajien lomitustoiminta': ' Substitution of farmers and fur producers',
   'Korkeakouluopiskelijoiden ateriatuki': ' Meal subsidy for university students',
   'Tiede- ja kulttuuri-instituuttikiinteistöjen menot': ' Expenses of science and culture institute properties',
@@ -1081,7 +1081,7 @@ translations = {
   'Valtionavustus rajanylityspaikkojen terveysturvallisuuden ylläpidosta aiheutuviin kustannuksiin Finavia Oyj:lle': ' State grant for the maintenance of health safety at border crossings to Finavia Ltd.',
   'Rokotetutkimuksen yhtiöittäminen': ' Incorporation of vaccine research',
   'Valtionosuudet kunnille ja liikunnan koulutuskeskuksille sekä rahoitus liikuntatieteellisten hankkeiden arviointikustannuksiin ja eräisiin avustuksiin': ' State subsidies for municipalities and sports education centers as well as funding for the evaluation costs of sports science projects and certain grants',
-  'EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan ohjelmakaudella 2021&mdash;2027': " “EU's share in the management of internal security and immigration in the programming period 2021&2027",
+  'EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan ohjelmakaudella 2021&mdash;2027': ' EU share in internal security and migration management for the program period 2021-2027',
   'Avustukset asuinrakennusten öljylämmityksestä luopumiseksi': ' Grants for discontinuing oil heating in residential buildings',
   'Nuorten työpajatoiminta etsivä nuorisotyö ja valtionosuudet kuntien nuorisotoimeen': 'Youth workshop activities, outreach youth work, and state subsidies for municipal youth services',
   'Avustus digitaaliseen lentopaikkatoimintaan': 'Grant for digital airport operations',
@@ -1094,4 +1094,5 @@ translations = {
   'Laina- ja investointimuotoinen kehitysyhteistyö': ' Loan and investment-based development cooperation',
   'Eräät Pohjois-Atlantin puolustusliitto NATO:n  jäsenyydestä aiheutuvat menot': ' Expenses related to membership in the North Atlantic Treaty Organization (NATO)',
   'Yhdenvertaisuutta tasa-arvoa ja syrjimättömyyttä koskevan tiedonannon toimeenpano': '“Implementation of communication on equality, equal treatment, and non-discrimination',
+  'Koko budjetti': 'Grand total',
 }

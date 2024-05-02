@@ -161,7 +161,7 @@ print(px.colors.sequential)
      Input('colorscale-income-dropdown', 'value'),
      Input('income-expense-radio', 'value')]
 )
-# pylint: disable=R0913, C0301
+# pylint: disable=R0913, C0301, R0914
 def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses, colorscale_income, income_expense):
     """Method to update graphs based on user drop down selections"""
     # pylint: disable=R0912, R0915
@@ -230,8 +230,9 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
 
     if income_expense == 'income':
         return fig2, balance_str, balance_color
-    else:
+    if income_expense == 'expenses':
         return fig1, balance_str, balance_color
+    raise ValueError("Invalid income-expense value")
 
     # return fig1, fig2, balance_str, balance_color
 
