@@ -52,7 +52,7 @@ app.layout = html.Div([
                 ],
                 value='beuros'
             ),
-        ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
+        ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
 
         html.Div([
             html.Label('Budget Year', style={'font-weight': 'bold'}),
@@ -194,13 +194,13 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
     fig1.update_layout(
         autosize=False,
         width=1900,
-        height=1000,
+        height=900,
     )
 
     fig2.update_layout(
         autosize=False,
         width=1900,
-        height=1000,
+        height=900,
     )
 
     if income_expense == 'income':
