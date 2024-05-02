@@ -28,8 +28,6 @@ def get_or_save_data(url_list, filename):
         df.insert(0, "Total budget", "Koko budjetti")
         df.to_csv(filename, index=False)
 
-    print(df.head())
-
     return df
 
 
@@ -60,14 +58,10 @@ def translate_budget_items(df, column_numbers=[0, 1, 2, 3]):  # pylint: disable=
         print(f"Expected a DataFrame, but got {type(df)}")
         return df
 
-    # translations = read_csv_to_dict('data/translations.csv')
-
     for col_num in column_numbers:
-        # print(f"Translating column {col_num}")
         col_name = df.columns[col_num]
         missing_keys = set(df[col_name]) - set(translations.keys())
         if missing_keys:
-            # print('missing some translations')
             print(f"Missing translations for keys: {missing_keys}")
 
         df[col_name] = df[col_name].map(translations).fillna(df[col_name])
@@ -88,10 +82,6 @@ def normalized_budgets_dict(translate=True):
         exp_data = get_or_save_data(exp_urls, f'data/bu{year}_exp.csv')
         inc_data = get_or_save_data(inc_urls, f'data/bu{year}_inc.csv')
         normalized_budgets[year] = normalize_budget_data(exp_data, inc_data)
-    print('data and budgets normalized')
-
-    print(
-        f"len(normalized_budgets): {len(normalized_budgets)} before translation")
 
     if translate:
         for year, budget_dict in normalized_budgets.items():
@@ -106,8 +96,5 @@ def normalized_budgets_dict(translate=True):
                         f"For year {year} and method {method}, expect DF but got {type(df)}")
                     continue
                 budget_dict[method] = translate_budget_items(df)
-
-    print(
-        f"len(normalized_budgets): {len(normalized_budgets)} after translation")
 
     return normalized_budgets

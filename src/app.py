@@ -17,6 +17,7 @@ normalized_budgets = normalized_budgets_dict()
 
 
 app = dash.Dash(__name__)
+app.title = 'Finnish State Budget'
 
 app.layout = html.Div([
     html.Div([
@@ -29,33 +30,25 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='normalization-dropdown',
                 options=[
+                    {'label': 'Billions of Euros', 'value': 'beuros'},
                     {'label': 'Per cent from total budget', 'value': 'percentage'},
+                    {'label': 'Per cent of GDP', 'value': 'gdp'},
                     {'label': 'Euros per Capita', 'value': 'per_capita'},
                     {'label': 'Euros per Working Age Capita',
                         'value': 'per_working_age_capita'},
-                    {'label': 'Per cent of GDP', 'value': 'gdp'},
                     {'label': 'Big Macs per capita', 'value': 'big_mac'},
                     {'label': 'Milk Cartons per capita', 'value': 'milk_cartons'},
                     {'label': 'Pizzas per capita', 'value': 'pizzas'},
                     {'label': 'Median Monthly Salaries per working age capita',
-                        'value': 'median_monthly_salary'},
-                    {'label': 'Billions of Euros', 'value': 'beuros'}
+                        'value': 'median_monthly_salary'}
                 ],
-                value='percentage'
+                value='beuros'
             ),
         ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
             html.Label('Budget balance', style={'font-weight': 'bold'}),
             html.P(id='balance'),
         ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
-        # html.Div([
-        #     html.Label('Budget Year', style={'font-weight': 'bold'}),
-        #     dcc.Dropdown(
-        #         id='year-dropdown',
-        #         options=[{'label': i, 'value': i} for i in range(2014, 2025)],
-        #         value=2023
-        #     )
-        # ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
             html.Label('Budget Year', style={'font-weight': 'bold'}),
             dcc.Slider(
@@ -68,6 +61,7 @@ app.layout = html.Div([
             )
         ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
+            html.Label('Budget type', style={'font-weight': 'bold'}),
             dcc.RadioItems(
                 id='income-expense-radio',
                 options=[
@@ -78,13 +72,13 @@ app.layout = html.Div([
             ),
         ], style={'width': '10%', 'display': 'inline-block'}),
         html.Div([
-            html.Label('Details'),
+            html.Label('Details', style={'font-weight': 'bold'}),
             dcc.RadioItems(
                 id='drill-down-radioitems',
                 options=[
-                    {'label': 'Low', 'value': 2},
-                    {'label': 'Medium', 'value': 3},
                     {'label': 'Detailed', 'value': 4},
+                    {'label': 'Medium', 'value': 3},
+                    {'label': 'Low', 'value': 2},
                 ],
                 value=4
             ),
@@ -97,8 +91,6 @@ app.layout = html.Div([
     html.Div([
         dcc.Graph(id='graph', style={
                   'display': 'inline-block', 'width': '98%', 'padding-right': '1%'}),
-        # dcc.Graph(id='graph2', style={
-        #           'display': 'inline-block', 'width': '48%', 'padding-left': '1%'}),
     ]),
 
     html.Div("Below dropdown menus for development purposes only, removed from final app", style={
@@ -124,20 +116,6 @@ app.layout = html.Div([
         ),
     ], style={'width': '25%', 'display': 'inline-block'}),
 
-    # html.Div([
-    #     html.Label('Drill-down level'),
-    #     dcc.Dropdown(
-    #         id='drill-down-dropdown',
-    #         options=[
-    #             {'label': '1', 'value': 1},
-    #             {'label': '2', 'value': 2},
-    #             {'label': '3', 'value': 3},
-    #         ],
-    #         value=2
-    #     ),
-    # ], style={'width': '15%', 'display': 'inline-block'}),
-
-
     html.Div([
         html.Label('Graph type'),
         dcc.Dropdown(
@@ -158,7 +136,6 @@ print(px.colors.sequential)
 
 @ app.callback(
     [Output('graph', 'figure'),
-     # Output('graph2', 'figure'),
      Output('balance', 'children'),
      Output('balance', 'style')],
     [Input('year-slider', 'value'),
@@ -206,39 +183,19 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
             df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown, title=title)
         fig2 = plot_sunburst(
             df_inc, path_inc, colorscale_income, drill_down_level=drilldown, title=title)
-    # elif graph_type == 'pie':
-    #     fig1 = plot_pie(
-    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-    #     fig2 = plot_pie(
-    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    # elif graph_type == 'bar':
-    #     fig1 = plot_bar(
-    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-    #     fig2 = plot_bar(
-    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    # elif graph_type == 'bubble':
-    #     fig1 = plot_bubble(
-    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-    #     fig2 = plot_bubble(
-    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
-    # elif graph_type == 'icicle':
-    #     fig1 = plot_icicle(
-    #         df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown)
-    #     fig2 = plot_icicle(
-    #         df_inc, path_inc, colorscale_income, drill_down_level=drilldown)
     else:
         raise ValueError("Invalid graph type.")
 
     fig1.update_layout(
         autosize=False,
         width=1900,
-        height=900,
+        height=1000,
     )
 
     fig2.update_layout(
         autosize=False,
         width=1900,
-        height=900,
+        height=1000,
     )
 
     if income_expense == 'income':
@@ -246,8 +203,6 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
     if income_expense == 'expenses':
         return fig1, balance_str, balance_color
     raise ValueError("Invalid income-expense value")
-
-    # return fig1, fig2, balance_str, balance_color
 
 
 if __name__ == '__main__':

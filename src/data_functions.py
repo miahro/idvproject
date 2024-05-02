@@ -13,17 +13,12 @@ def read_csvs(url_list):
     """
     Read a list of csv files and return a list of dataframes.
     """
-
-    print(f'number of urls: {len(url_list)}')
-    # print(url_list)
-
     dataframes = []
     for url in url_list:
         print(f'reading {url}')
         df = pd.read_csv(url, encoding='ISO-8859-1', sep=';', decimal=',')
         df = df.apply(lambda x: x.str.replace(',', '')
                       if x.dtype == "object" else x)
-        # df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
         for col in df.columns:
             df[col] = df[col].map(lambda x: x.replace(
                 '\xa0', ' ').strip() if isinstance(x, str) else x)
@@ -89,11 +84,7 @@ def build_budget(url_list):
     if not check_same_columns(df_list):
         raise ValueError("Dataframes do not have the same columns.")
 
-    # df_concat = concat_dataframes(df_list)
     df_concat = process_dataframe(df_list)
-    # print(df_concat.shape)
-
-    print(df_concat.head())
 
     return df_concat
 
@@ -102,9 +93,6 @@ def normalize_budget(df, method=None):
     """
     Normalize the budget dataframe.
     """
-
-    # df = build_budget(url_list)
-
     df = df.copy()
 
     if method == 'beuros':
@@ -129,7 +117,6 @@ def normalize_budget(df, method=None):
     else:
         raise ValueError("Invalid normalization method.")
     print(f'normalized with {method} method')
-    print(df['total'].sum())
 
     return df
 
@@ -145,25 +132,8 @@ def budget_total_and_balance(df_inc, df_exp):
     total_income = df_inc['total'].sum()
     total_expenses = df_exp['total'].sum()
 
-    # print(f"total income: {total_income}, total expenses: {total_expenses}")
-
-    # print(f"df_inc:\n{df_inc}")  # print the contents of df_inc
-
-    # condition = df_inc['Tulomomentin nimi'].str.strip(
-    # ).str.startswith('Net borrowing')
-    # print(f"condition:\n{condition}")  # print the result of the condition
-
-    # print(
-    #     f"Unique values in 'Tulomomentin nimi':\n{df_inc['Tulomomentin nimi'].unique()}")
-
-    # net_loans = df_inc.loc[df_inc['Tulomomentin nimi'].str.startswith(
-    #     'Nettolainanotto'), 'total'].values[0]
-
     net_loans = df_inc.loc[df_inc['Tulomomentin nimi'].str.strip(
     ).str.startswith('Net borrowing'), 'total'].values[0]
-
-    # net_loans = df_inc.loc[df_inc['Tulomomentin nimi'].str.startswith(
-    #     'Net borrowing'), 'total'].values[0]
 
     net_income = total_income - net_loans
 
