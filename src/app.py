@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 
 import dash
+import dash_table
 from dash import dcc, html
 from dash.dependencies import Input, Output
 from data_manager import normalized_budgets_dict
@@ -25,21 +26,19 @@ app.layout = html.Div([
                      height="33px", width="54px"),
         ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top'}),
         html.Div([
-            html.Label('Income', style={'font-weight': 'bold'}),
-            html.P(id='total_income'),
-        ], style={'width': '5%', 'display': 'inline-block', 'margin-left': '20px'}),
-        html.Div([
-            html.Label('Net Income', style={'font-weight': 'bold'}),
-            html.P(id='net_income'),
-        ], style={'width': '7%', 'display': 'inline-block', 'margin-left': '20px'}),
-        html.Div([
-            html.Label('Expenses', style={'font-weight': 'bold'}),
-            html.P(id='total_expenses'),
-        ], style={'width': '5%', 'display': 'inline-block', 'margin-left': '20px'}),
-        html.Div([
-            html.Label('Balance', style={'font-weight': 'bold'}),
-            html.P(id='balance'),
-        ], style={'width': '5%', 'display': 'inline-block', 'margin-left': '20px'}),
+            dash_table.DataTable(
+                id='financial-summary',
+                columns=[
+                    {"name": "Income", "id": "total_income"},
+                    {"name": "Net Income", "id": "net_income"},
+                    {"name": "Expenses", "id": "total_expenses"},
+                    {"name": "Balance", "id": "balance"},
+                ],
+                data=[{}],
+                style_cell={'textAlign': 'left'},
+            )
+        ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
+
         html.Div([
             html.Label('Normalization / budget unit',
                        style={'font-weight': 'bold'}),
@@ -59,23 +58,28 @@ app.layout = html.Div([
                         'value': 'median_monthly_salary'}
                 ],
                 value='beuros',
-                clearable=False
+                clearable=False,
+                style={'margin-top': '6px'}
             ),
         ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
-
         html.Div([
             html.Label('Budget Year', style={'font-weight': 'bold'}),
-            dcc.Slider(
-                id='year-slider',
-                min=2014,
-                max=2024,
-                step=1,
-                value=2024,
-                marks={i: str(i) for i in range(2014, 2025)},
-            )
-        ], style={'width': '20%', 'display': 'inline-block', 'margin-left': '20px'}),
+            html.Div([
+                dcc.Slider(
+                    id='year-slider',
+                    min=2014,
+                    max=2024,
+                    step=1,
+                    value=2024,
+                    marks={i: str(i) for i in range(2014, 2025)},
+                )
+            ], style={'margin-top': '10px'})
+        ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
+
+
         html.Div([
-            html.Label('Budget type', style={'font-weight': 'bold'}),
+            html.Label('Display', style={
+                       'font-weight': 'bold'}),
             dcc.RadioItems(
                 id='income-expense-radio',
                 options=[
@@ -84,7 +88,7 @@ app.layout = html.Div([
                 ],
                 value='income'
             ),
-        ], style={'width': '10%', 'display': 'inline-block'}),
+        ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
             html.Label('Details', style={'font-weight': 'bold'}),
             dcc.RadioItems(
@@ -113,14 +117,8 @@ app.layout = html.Div([
 
 @ app.callback(
     [Output('graph', 'figure'),
-     Output('balance', 'children'),
-     Output('balance', 'style'),
-     Output('total_income', 'children'),
-     Output('total_income', 'style'),
-     Output('net_income', 'children'),
-     Output('net_income', 'style'),
-     Output('total_expenses', 'children'),
-     Output('total_expenses', 'style')],
+     Output('financial-summary', 'data'),
+     Output('financial-summary', 'style_data_conditional')],
     [Input('year-slider', 'value'),
      Input('normalization-dropdown', 'value'),
      Input('drill-down-radioitems', 'value'),
@@ -139,18 +137,10 @@ def update_graph(year, normalization, drilldown, income_expense):
     total_income, net_income, total_expenses, balance = budget_total_and_balance(
         df_inc, df_exp)
 
-    balance_str = f'{balance:.2f}'
-    balance_color = {'color': 'green' if balance >=
-                     0 else 'red'}
-
-    total_income_str = f'{total_income:.2f}'
-    total_income_color = {'color': 'green'}
-
-    net_income_str = f'{net_income:.2f}'
-    net_income_color = {'color': 'green'}
-
-    total_expenses_str = f'{total_expenses:.2f}'
-    total_expenses_color = {'color': 'red'}
+    balance_color = 'green' if balance >= 0 else 'red'
+    total_income_color = 'green'
+    net_income_color = 'green'
+    total_expenses_color = 'red'
 
     path_exp = ['Total budget', 'Pääluokan nimi',
                 'Menoluvun nimi', 'Menomomentin nimi']
@@ -173,11 +163,35 @@ def update_graph(year, normalization, drilldown, income_expense):
         autosize=False,
         width=1900,
         height=850,
-        margin={'t': 0, 'l': 0, 'r': 0, 'b': 0},
+        margin={'t': 25, 'l': 0, 'r': 0, 'b': 0},
     )
 
-    return fig, balance_str, balance_color, total_income_str, total_income_color, net_income_str, \
-        net_income_color, total_expenses_str, total_expenses_color
+    data = [{
+        'total_income': f'{total_income:.2f}',
+        'net_income': f'{net_income:.2f}',
+        'total_expenses': f'{total_expenses:.2f}',
+        'balance': f'{balance:.2f}',
+    }]
+
+    style_data_conditional = [
+        {
+            'if': {'column_id': 'total_income'},
+            'color': total_income_color,
+        },
+        {
+            'if': {'column_id': 'net_income'},
+            'color': net_income_color,
+        },
+        {
+            'if': {'column_id': 'total_expenses'},
+            'color': total_expenses_color,
+        },
+        {
+            'if': {'column_id': 'balance'},
+            'color': balance_color,
+        },
+    ]
+    return fig, data, style_data_conditional
 
 
 if __name__ == '__main__':
