@@ -21,21 +21,6 @@ def plot_treemap(df, path, col_scale, drill_down_level=4, title=""):
 
     df = df.copy()
 
-    # print("col_scale", col_scale)
-
-    # print("type(col_scale)", type(col_scale))
-    # print("len color_scale", len(color_scale))
-
-    # if col_scale == 'Reds_r':
-    #     col_scale = reds_r
-
-    # color_scale = getattr(px.colors.sequential, col_scale)
-
-    # print("color_scale", color_scale)
-
-    # if col_scale == 'Reds_r':
-    #    color_scale = reds_r
-
     path = path[0:drill_down_level]
     color_scale = color_scales[col_scale]
 

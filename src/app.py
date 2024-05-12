@@ -98,26 +98,6 @@ app.layout = html.Div([
     html.Div("Below dropdown menus for development purposes only, removed from final app", style={
              'textAlign': 'center'}),
 
-    # html.Div([
-    #     html.Label('Color Scale for Expenses'),
-    #     dcc.Dropdown(
-    #         id='colorscale-expenses-dropdown',
-    #         options=[{'label': i, 'value': i}
-    #                  for i in dir(px.colors.sequential)],
-    #         value='Reds_r'
-    #     ),
-    # ], style={'width': '25%', 'display': 'inline-block'}),
-
-    # html.Div([
-    #     html.Label('Color Scale for Income'),
-    #     dcc.Dropdown(
-    #         id='colorscale-income-dropdown',
-    #         options=[{'label': i, 'value': i}
-    #                  for i in dir(px.colors.sequential)],
-    #         value='Greens_r'
-    #     ),
-    # ], style={'width': '25%', 'display': 'inline-block'}),
-
     html.Div([
         html.Label('Graph type'),
         dcc.Dropdown(
@@ -135,6 +115,8 @@ app.layout = html.Div([
 
 print(px.colors.sequential)
 
+# pylint: disable=R0914
+
 
 @ app.callback(
     [Output('graph', 'figure'),
@@ -144,14 +126,10 @@ print(px.colors.sequential)
      Input('normalization-dropdown', 'value'),
      Input('drill-down-radioitems', 'value'),
      Input('graph-type-dropdown', 'value'),
-     # Input('colorscale-expenses-dropdown', 'value'),
-     # Input('colorscale-income-dropdown', 'value'),
      Input('income-expense-radio', 'value')]
 )
-# pylint: disable=R0913, C0301, R0914
 def update_graph(year, normalization, drilldown, graph_type, income_expense):
     """Method to update graphs based on user drop down selections"""
-    # pylint: disable=R0912, R0915
 
     df_exp = normalized_budgets[str(year)][f'exp_{normalization}']
     df_inc = normalized_budgets[str(year)][f'inc_{normalization}']
