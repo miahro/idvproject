@@ -10,11 +10,8 @@ import plotly.express as px
 from data_manager import normalized_budgets_dict
 from data_functions import budget_total_and_balance, form_title
 from plot import plot_treemap, plot_sunburst
-# from data_manager import get_or_save_data
-
 
 normalized_budgets = normalized_budgets_dict()
-
 
 app = dash.Dash(__name__)
 app.title = 'Finnish State Budget'
@@ -101,25 +98,25 @@ app.layout = html.Div([
     html.Div("Below dropdown menus for development purposes only, removed from final app", style={
              'textAlign': 'center'}),
 
-    html.Div([
-        html.Label('Color Scale for Expenses'),
-        dcc.Dropdown(
-            id='colorscale-expenses-dropdown',
-            options=[{'label': i, 'value': i}
-                     for i in dir(px.colors.sequential)],
-            value='Reds_r'
-        ),
-    ], style={'width': '25%', 'display': 'inline-block'}),
+    # html.Div([
+    #     html.Label('Color Scale for Expenses'),
+    #     dcc.Dropdown(
+    #         id='colorscale-expenses-dropdown',
+    #         options=[{'label': i, 'value': i}
+    #                  for i in dir(px.colors.sequential)],
+    #         value='Reds_r'
+    #     ),
+    # ], style={'width': '25%', 'display': 'inline-block'}),
 
-    html.Div([
-        html.Label('Color Scale for Income'),
-        dcc.Dropdown(
-            id='colorscale-income-dropdown',
-            options=[{'label': i, 'value': i}
-                     for i in dir(px.colors.sequential)],
-            value='Greens_r'
-        ),
-    ], style={'width': '25%', 'display': 'inline-block'}),
+    # html.Div([
+    #     html.Label('Color Scale for Income'),
+    #     dcc.Dropdown(
+    #         id='colorscale-income-dropdown',
+    #         options=[{'label': i, 'value': i}
+    #                  for i in dir(px.colors.sequential)],
+    #         value='Greens_r'
+    #     ),
+    # ], style={'width': '25%', 'display': 'inline-block'}),
 
     html.Div([
         html.Label('Graph type'),
@@ -147,12 +144,12 @@ print(px.colors.sequential)
      Input('normalization-dropdown', 'value'),
      Input('drill-down-radioitems', 'value'),
      Input('graph-type-dropdown', 'value'),
-     Input('colorscale-expenses-dropdown', 'value'),
-     Input('colorscale-income-dropdown', 'value'),
+     # Input('colorscale-expenses-dropdown', 'value'),
+     # Input('colorscale-income-dropdown', 'value'),
      Input('income-expense-radio', 'value')]
 )
 # pylint: disable=R0913, C0301, R0914
-def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses, colorscale_income, income_expense):
+def update_graph(year, normalization, drilldown, graph_type, income_expense):
     """Method to update graphs based on user drop down selections"""
     # pylint: disable=R0912, R0915
 
@@ -161,7 +158,7 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
 
     print(f'chosen year {year}')
     print(f'chosen normalization {normalization}')
-    print(f'chonse income-expense {income_expense}')
+    print(f'chosen income-expense {income_expense}')
 
     total_income, net_income, total_expenses, balance = budget_total_and_balance(
         df_inc, df_exp)
@@ -177,6 +174,9 @@ def update_graph(year, normalization, drilldown, graph_type, colorscale_expenses
 
     title = form_title(year, income_expense, normalization,
                        total_income, net_income, total_expenses)
+
+    colorscale_expenses = 'reds_r'
+    colorscale_income = 'greens_r'
 
     if graph_type == 'treemap':
         fig1 = plot_treemap(
