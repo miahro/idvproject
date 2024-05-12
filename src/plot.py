@@ -14,7 +14,7 @@ color_scales = {
 }
 
 
-def plot_treemap(df, path, col_scale, drill_down_level=4, title=""):
+def plot_treemap(df, path, col_scale, drill_down_level=4):
     """
     Create a Plotly treemap plot from a DataFrame.
     """
@@ -33,6 +33,6 @@ def plot_treemap(df, path, col_scale, drill_down_level=4, title=""):
     fig.update_traces(
         hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=16)
 
-    fig.update_layout(title_text=title)
+    # fig.update_layout(title_text=title)
 
     return fig

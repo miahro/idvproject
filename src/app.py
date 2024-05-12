@@ -7,7 +7,7 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 from data_manager import normalized_budgets_dict
-from data_functions import budget_total_and_balance, form_title
+from data_functions import budget_total_and_balance
 from plot import plot_treemap
 
 normalized_budgets = normalized_budgets_dict()
@@ -25,9 +25,21 @@ app.layout = html.Div([
                      height="33px", width="54px"),
         ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top'}),
         html.Div([
-            html.Label('Budget balance', style={'font-weight': 'bold'}),
+            html.Label('Income', style={'font-weight': 'bold'}),
+            html.P(id='total_income'),
+        ], style={'width': '5%', 'display': 'inline-block', 'margin-left': '20px'}),
+        html.Div([
+            html.Label('Net Income', style={'font-weight': 'bold'}),
+            html.P(id='net_income'),
+        ], style={'width': '7%', 'display': 'inline-block', 'margin-left': '20px'}),
+        html.Div([
+            html.Label('Expenses', style={'font-weight': 'bold'}),
+            html.P(id='total_expenses'),
+        ], style={'width': '5%', 'display': 'inline-block', 'margin-left': '20px'}),
+        html.Div([
+            html.Label('Balance', style={'font-weight': 'bold'}),
             html.P(id='balance'),
-        ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
+        ], style={'width': '5%', 'display': 'inline-block', 'margin-left': '20px'}),
         html.Div([
             html.Label('Normalization / budget unit',
                        style={'font-weight': 'bold'}),
@@ -46,7 +58,8 @@ app.layout = html.Div([
                     {'label': 'Median Monthly Salaries per working age capita',
                         'value': 'median_monthly_salary'}
                 ],
-                value='beuros'
+                value='beuros',
+                clearable=False
             ),
         ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
 
@@ -101,7 +114,13 @@ app.layout = html.Div([
 @ app.callback(
     [Output('graph', 'figure'),
      Output('balance', 'children'),
-     Output('balance', 'style')],
+     Output('balance', 'style'),
+     Output('total_income', 'children'),
+     Output('total_income', 'style'),
+     Output('net_income', 'children'),
+     Output('net_income', 'style'),
+     Output('total_expenses', 'children'),
+     Output('total_expenses', 'style')],
     [Input('year-slider', 'value'),
      Input('normalization-dropdown', 'value'),
      Input('drill-down-radioitems', 'value'),
@@ -122,32 +141,43 @@ def update_graph(year, normalization, drilldown, income_expense):
 
     balance_str = f'{balance:.2f}'
     balance_color = {'color': 'green' if balance >=
-                     0 else 'red', 'font-weight': 'bold'}
+                     0 else 'red'}
+
+    total_income_str = f'{total_income:.2f}'
+    total_income_color = {'color': 'green'}
+
+    net_income_str = f'{net_income:.2f}'
+    net_income_color = {'color': 'green'}
+
+    total_expenses_str = f'{total_expenses:.2f}'
+    total_expenses_color = {'color': 'red'}
 
     path_exp = ['Total budget', 'Pääluokan nimi',
                 'Menoluvun nimi', 'Menomomentin nimi']
     path_inc = ['Total budget', 'Osaston nimi',
                 'Tuloluvun nimi', 'Tulomomentin nimi']
 
-    title = form_title(year, income_expense, normalization,
-                       total_income, net_income, total_expenses)
+    # title = form_title(year, income_expense, normalization,
+    #                    total_income, net_income, total_expenses)
 
     if income_expense == 'income':
         fig = plot_treemap(
-            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown, title=title)
+            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown)
     elif income_expense == 'expenses':
         fig = plot_treemap(
-            df_exp, path_exp, col_scale='reds_r', drill_down_level=drilldown, title=title)
+            df_exp, path_exp, col_scale='reds_r', drill_down_level=drilldown)
     else:
         raise ValueError("Invalid income-expense value")
 
     fig.update_layout(
         autosize=False,
         width=1900,
-        height=900,
+        height=850,
+        margin={'t': 0, 'l': 0, 'r': 0, 'b': 0},
     )
 
-    return fig, balance_str, balance_color
+    return fig, balance_str, balance_color, total_income_str, total_income_color, net_income_str, \
+        net_income_color, total_expenses_str, total_expenses_color
 
 
 if __name__ == '__main__':
