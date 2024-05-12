@@ -6,10 +6,9 @@ from dotenv import load_dotenv
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
-import plotly.express as px
 from data_manager import normalized_budgets_dict
 from data_functions import budget_total_and_balance, form_title
-from plot import plot_treemap, plot_sunburst
+from plot import plot_treemap
 
 normalized_budgets = normalized_budgets_dict()
 
@@ -95,26 +94,7 @@ app.layout = html.Div([
                   'display': 'inline-block', 'width': '98%', 'padding-right': '1%'}),
     ]),
 
-    html.Div("Below dropdown menus for development purposes only, removed from final app", style={
-             'textAlign': 'center'}),
-
-    html.Div([
-        html.Label('Graph type'),
-        dcc.Dropdown(
-            id='graph-type-dropdown',
-            options=[
-                {'label': 'Treemap', 'value': 'treemap'},
-                {'label': 'Sunburst', 'value': 'sunburst'},
-            ],
-            value='treemap'
-        ),
-    ], style={'width': '25%', 'display': 'inline-block'}),
-
-
 ])
-
-print(px.colors.sequential)
-
 # pylint: disable=R0914
 
 
@@ -125,10 +105,9 @@ print(px.colors.sequential)
     [Input('year-slider', 'value'),
      Input('normalization-dropdown', 'value'),
      Input('drill-down-radioitems', 'value'),
-     Input('graph-type-dropdown', 'value'),
      Input('income-expense-radio', 'value')]
 )
-def update_graph(year, normalization, drilldown, graph_type, income_expense):
+def update_graph(year, normalization, drilldown, income_expense):
     """Method to update graphs based on user drop down selections"""
 
     df_exp = normalized_budgets[str(year)][f'exp_{normalization}']
@@ -153,39 +132,22 @@ def update_graph(year, normalization, drilldown, graph_type, income_expense):
     title = form_title(year, income_expense, normalization,
                        total_income, net_income, total_expenses)
 
-    colorscale_expenses = 'reds_r'
-    colorscale_income = 'greens_r'
-
-    if graph_type == 'treemap':
-        fig1 = plot_treemap(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown, title=title)
-        fig2 = plot_treemap(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown, title=title)
-    elif graph_type == 'sunburst':
-        fig1 = plot_sunburst(
-            df_exp, path_exp, colorscale_expenses, drill_down_level=drilldown, title=title)
-        fig2 = plot_sunburst(
-            df_inc, path_inc, colorscale_income, drill_down_level=drilldown, title=title)
-    else:
-        raise ValueError("Invalid graph type.")
-
-    fig1.update_layout(
-        autosize=False,
-        width=1900,
-        height=900,
-    )
-
-    fig2.update_layout(
-        autosize=False,
-        width=1900,
-        height=900,
-    )
-
     if income_expense == 'income':
-        return fig2, balance_str, balance_color
-    if income_expense == 'expenses':
-        return fig1, balance_str, balance_color
-    raise ValueError("Invalid income-expense value")
+        fig = plot_treemap(
+            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown, title=title)
+    elif income_expense == 'expenses':
+        fig = plot_treemap(
+            df_exp, path_exp, col_scale='reds_r', drill_down_level=drilldown, title=title)
+    else:
+        raise ValueError("Invalid income-expense value")
+
+    fig.update_layout(
+        autosize=False,
+        width=1900,
+        height=900,
+    )
+
+    return fig, balance_str, balance_color
 
 
 if __name__ == '__main__':

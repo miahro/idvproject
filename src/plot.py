@@ -36,21 +36,3 @@ def plot_treemap(df, path, col_scale, drill_down_level=4, title=""):
     fig.update_layout(title_text=title)
 
     return fig
-
-
-def plot_sunburst(df, path, col_scale, drill_down_level=4, title=""):
-    """
-    Create a Plotly sunburst plot from a DataFrame.
-    """
-
-    path = path[0:drill_down_level]
-    color_scale = getattr(px.colors.sequential, col_scale)
-
-    fig = px.sunburst(df, path=path, values='total',
-                      color_discrete_sequence=color_scale)
-
-    fig.update_traces(
-        hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=12)
-
-    fig.update_layout(title_text=title)
-    return fig
