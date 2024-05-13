@@ -7,16 +7,34 @@ import dash
 import dash_table
 from dash import dcc, html
 from dash.dependencies import Input, Output
+import dash_bootstrap_components as dbc
 from data_manager import normalized_budgets_dict
 from data_functions import budget_total_and_balance
 from plot import get_figure, get_summary_data
 from constants import budget_units
-
+from help import get_modal_content
 
 normalized_budgets = normalized_budgets_dict()
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+# app = dash.Dash(__name__)
 app.title = 'Finnish State Budget'
+
+help_modal = dbc.Modal(
+    [
+        dbc.ModalHeader(dbc.ModalTitle("Help/Info")),
+        dbc.ModalBody(get_modal_content()),
+        dbc.ModalFooter(
+            dbc.Button("Close", id="close-help",
+                       className="ms-auto", n_clicks=0)
+        ),
+    ],
+    id="modal-help",
+    is_open=False
+)
+
+trigger_button = html.Button('Help/Info', id='open-help', n_clicks=0)
+
 
 app.layout = html.Div([
     html.Div([
@@ -42,7 +60,7 @@ app.layout = html.Div([
         ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
 
         html.Div([
-            html.Label('Normalization / budget unit',
+            html.Label('Budget unit (normalization)',
                        style={'font-weight': 'bold'}),
             dcc.Dropdown(
                 id='normalization-dropdown',
@@ -92,10 +110,8 @@ app.layout = html.Div([
                 value=4
             ),
         ], style={'width': '15%', 'display': 'inline-block'}),
+        html.Div([trigger_button, help_modal]),
     ], style={'display': 'flex', 'align-items': 'flex-start', 'backgroundColor': 'lightgrey'}),
-
-
-
 
     html.Div([
         dcc.Graph(id='graph', style={
@@ -131,6 +147,18 @@ def update_graph(year, normalization, drilldown, income_expense):
     data, style_data_conditional = get_summary_data(
         total_income, net_income, total_expenses, balance)
     return fig, data, style_data_conditional
+
+
+@app.callback(
+    Output("modal-help", "is_open"),
+    [Input("open-help", "n_clicks"), Input("close-help", "n_clicks")],
+    [dash.dependencies.State("modal-help", "is_open")],
+)
+def toggle_modal(n1, n2, is_open):
+    """Toggles the modal."""
+    if n1 or n2:
+        return not is_open
+    return is_open
 
 
 if __name__ == '__main__':
