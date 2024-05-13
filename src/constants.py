@@ -1,14 +1,14 @@
 """Module for constants"""
 
 budget_units = {
-    'beuros': 'Billions of Euros',
+    'beuros': 'Billions of euros',
     'percentage': 'Per cent from total budget',
-    'per_capita': 'Euros per Capita',
-    'per_working_age_capita': 'Euros per Working Age Capita',
+    'per_capita': 'Euros per capita',
+    'per_working_age_capita': 'Euros per working age capita',
     'gdp': 'Per cent of GDP',
-    'big_mac': 'Big Macs per capita',
-    'milk_cartons': 'Milk Cartons per capita',
-    'pizzas': 'Pizzas per capita',
+    'big_mac': 'Big Macs per capita (per year)',
+    'milk_cartons': 'Milk Cartons per capita (per year)',
+    'pizzas': 'Pizzas per capita (per year)',
     'median_monthly_salary': 'Median Monthly Salaries per working age capita'
 }
 
