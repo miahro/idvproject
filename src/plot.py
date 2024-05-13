@@ -36,3 +36,43 @@ def plot_treemap(df, path, col_scale, drill_down_level=4):
     # fig.update_layout(title_text=title)
 
     return fig
+
+
+def get_summary_data(total_income, net_income, total_expenses, balance):
+    """Returns data and style data conditional for the financial summary table."""
+    balance_color = 'green' if balance >= 0 else 'red'
+    total_income_color = 'green'
+    net_income_color = 'green'
+    total_expenses_color = 'red'
+    data = [{
+        'total_income': f'{total_income:.2f}',
+        'net_income': f'{net_income:.2f}',
+        'total_expenses': f'{total_expenses:.2f}',
+        'balance': f'{balance:.2f}',
+    }]
+    style_data_conditional = [
+        {'if': {'column_id': 'total_income'}, 'color': total_income_color},
+        {'if': {'column_id': 'net_income'}, 'color': net_income_color},
+        {'if': {'column_id': 'total_expenses'}, 'color': total_expenses_color},
+        {'if': {'column_id': 'balance'}, 'color': balance_color},
+    ]
+    return data, style_data_conditional
+
+
+def get_figure(income_expense, df_inc, df_exp, drilldown):
+    """Returns a Plotly figure based on selection expenses/income."""
+    path_exp = ['Total budget', 'Pääluokan nimi',
+                'Menoluvun nimi', 'Menomomentin nimi']
+    path_inc = ['Total budget', 'Osaston nimi',
+                'Tuloluvun nimi', 'Tulomomentin nimi']
+    if income_expense == 'income':
+        fig = plot_treemap(
+            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown)
+    elif income_expense == 'expenses':
+        fig = plot_treemap(df_exp, path_exp, col_scale='reds_r',
+                           drill_down_level=drilldown)
+    else:
+        raise ValueError("Invalid income-expense value")
+    fig.update_layout(autosize=False, width=1900, height=850,
+                      margin={'t': 25, 'l': 0, 'r': 0, 'b': 0})
+    return fig

@@ -3,10 +3,8 @@
 
 import pandas as pd
 
-from norm_factors import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
-    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
-
-from constants import budget_units
+from constants import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
+    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY, budget_units
 
 
 def read_csvs(url_list):

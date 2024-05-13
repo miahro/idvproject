@@ -11,3 +11,12 @@ budget_units = {
     'pizzas': 'Pizzas per capita',
     'median_monthly_salary': 'Median Monthly Salaries per working age capita'
 }
+
+
+BIG_MAC = 7.55
+MILK_CARTON = 1.25
+PIZZA = 10.00
+TOTAL_CAPITA = 5.556*10**6
+TOTAL_WORKING_AGE_CAPITA = 3.121*10**6
+GDP = 277.6*10**9
+MEDIAN_MONTHLY_SALARY = 3215
