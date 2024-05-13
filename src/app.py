@@ -19,11 +19,11 @@ app.title = 'Finnish State Budget'
 app.layout = html.Div([
     html.Div([
         html.Div([
-            # Remove top margin
             html.P("State budget", style={
-                   'margin-top': '0', 'font-weight': 'bold'}),
+                   'margin-top': '0', 'margin-bottom': '5px', 'font-weight': 'bold'}),
             html.Img(src="https://flagcdn.com/w320/fi.png",
-                     height="33px", width="54px"),
+                     height="33px", width="54px", style={'margin-left': '30px',
+                                                         'vertical-align': 'top'}),
         ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top'}),
         html.Div([
             dash_table.DataTable(
@@ -101,7 +101,7 @@ app.layout = html.Div([
                 value=4
             ),
         ], style={'width': '15%', 'display': 'inline-block'}),
-    ], style={'display': 'flex', 'align-items': 'flex-start'}),
+    ], style={'display': 'flex', 'align-items': 'flex-start', 'backgroundColor': 'lightgrey'}),
 
 
 
@@ -129,10 +129,6 @@ def update_graph(year, normalization, drilldown, income_expense):
 
     df_exp = normalized_budgets[str(year)][f'exp_{normalization}']
     df_inc = normalized_budgets[str(year)][f'inc_{normalization}']
-
-    print(f'chosen year {year}')
-    print(f'chosen normalization {normalization}')
-    print(f'chosen income-expense {income_expense}')
 
     total_income, net_income, total_expenses, balance = budget_total_and_balance(
         df_inc, df_exp)

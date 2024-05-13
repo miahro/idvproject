@@ -116,7 +116,7 @@ def normalize_budget(df, method=None):
             (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)
     else:
         raise ValueError("Invalid normalization method.")
-    print(f'normalized with {method} method')
+    # print(f'normalized with {method} method')
 
     return df
 
@@ -137,13 +137,13 @@ def budget_total_and_balance(df_inc, df_exp):
 
     net_income = total_income - net_loans
 
-    print(f"total loans: {net_loans}")
+    # print(f"total loans: {net_loans}")
     balance = net_income - total_expenses
 
-    print(
-        f'total income: {total_income}, net income: {net_income} total expenses:'
-        f'{total_expenses}, balance: {balance}'
-    )
+    # print(
+    #     f'total income: {total_income}, net income: {net_income} total expenses:'
+    #     f'{total_expenses}, balance: {balance}'
+    # )
 
     return total_income, net_income, total_expenses, balance
 

@@ -85,7 +85,7 @@ def normalized_budgets_dict(translate=True):
 
     if translate:
         for year, budget_dict in normalized_budgets.items():
-            print(f"Translating budget items for year {year}")
+            # print(f"Translating budget items for year {year}")
             if not isinstance(budget_dict, dict):
                 print(
                     f"For year {year}, expected a dict but got {type(budget_dict)}")
