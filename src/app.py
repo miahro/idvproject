@@ -127,7 +127,7 @@ def update_graph(year, normalization, drilldown, income_expense):
     """Updates the graph based on user input."""
     df_inc, df_exp, total_income, net_income, total_expenses, balance = get_financial_data(
         year, normalization)
-    fig = get_figure(income_expense, df_inc, df_exp, drilldown)
+    fig = get_figure(income_expense, df_inc, df_exp, drilldown, normalization)
     data, style_data_conditional = get_summary_data(
         total_income, net_income, total_expenses, balance)
     return fig, data, style_data_conditional

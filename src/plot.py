@@ -1,6 +1,7 @@
 """Module for plotly plot functions"""
 
 import plotly.express as px
+from constants import budget_units
 
 color_scales = {
     'reds_r': ['rgb(103, 0, 13)', 'rgb(138, 9, 18)', 'rgb(170, 16, 22)',
@@ -14,7 +15,7 @@ color_scales = {
 }
 
 
-def plot_treemap(df, path, col_scale, drill_down_level=4):
+def plot_treemap(df, path, col_scale, drill_down_level, normalization):
     """
     Create a Plotly treemap plot from a DataFrame.
     """
@@ -28,12 +29,14 @@ def plot_treemap(df, path, col_scale, drill_down_level=4):
         'total'], color_discrete_sequence=color_scale)
 
     fig.update_traces(
-        # texttemplate='%{label}: %{customdata[0]:.2f}',
         textposition='middle center', textfont_size=16)
     fig.update_traces(
-        hovertemplate='%{label} <br> Total: %{value:.2f}', textfont_size=16)
-
-    # fig.update_layout(title_text=title)
+        hovertemplate=(
+            f'%{{label}} <br> Total: %{{value:.2f}} <br> '
+            f'Unit: {budget_units[normalization]}'
+        ),
+        textfont_size=16
+    )
 
     return fig
 
@@ -59,18 +62,18 @@ def get_summary_data(total_income, net_income, total_expenses, balance):
     return data, style_data_conditional
 
 
-def get_figure(income_expense, df_inc, df_exp, drilldown):
+def get_figure(income_expense, df_inc, df_exp, drilldown, normalization):
     """Returns a Plotly figure based on selection expenses/income."""
     path_exp = ['Total budget', 'Pääluokan nimi',
                 'Menoluvun nimi', 'Menomomentin nimi']
     path_inc = ['Total budget', 'Osaston nimi',
                 'Tuloluvun nimi', 'Tulomomentin nimi']
     if income_expense == 'income':
-        fig = plot_treemap(
-            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown)
+        fig = plot_treemap(df_inc, path_inc, col_scale='greens_r',
+                           drill_down_level=drilldown, normalization=normalization)
     elif income_expense == 'expenses':
         fig = plot_treemap(df_exp, path_exp, col_scale='reds_r',
-                           drill_down_level=drilldown)
+                           drill_down_level=drilldown, normalization=normalization)
     else:
         raise ValueError("Invalid income-expense value")
     fig.update_layout(autosize=False, width=1900, height=850,
