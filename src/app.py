@@ -112,10 +112,58 @@ app.layout = html.Div([
     ]),
 
 ])
-# pylint: disable=R0914
 
 
-@ app.callback(
+def get_financial_data(year, normalization):
+    """Returns income and expense dataframes for a given year and normalization."""
+    df_inc = normalized_budgets[str(year)][f'inc_{normalization}']
+    df_exp = normalized_budgets[str(year)][f'exp_{normalization}']
+    total_income, net_income, total_expenses, balance = budget_total_and_balance(
+        df_inc, df_exp)
+    return df_inc, df_exp, total_income, net_income, total_expenses, balance
+
+
+def get_summary_data(total_income, net_income, total_expenses, balance):
+    """Returns data and style data conditional for the financial summary table."""
+    balance_color = 'green' if balance >= 0 else 'red'
+    total_income_color = 'green'
+    net_income_color = 'green'
+    total_expenses_color = 'red'
+    data = [{
+        'total_income': f'{total_income:.2f}',
+        'net_income': f'{net_income:.2f}',
+        'total_expenses': f'{total_expenses:.2f}',
+        'balance': f'{balance:.2f}',
+    }]
+    style_data_conditional = [
+        {'if': {'column_id': 'total_income'}, 'color': total_income_color},
+        {'if': {'column_id': 'net_income'}, 'color': net_income_color},
+        {'if': {'column_id': 'total_expenses'}, 'color': total_expenses_color},
+        {'if': {'column_id': 'balance'}, 'color': balance_color},
+    ]
+    return data, style_data_conditional
+
+
+def get_figure(income_expense, df_inc, df_exp, drilldown):
+    """Returns a Plotly figure based on selection expenses/income."""
+    path_exp = ['Total budget', 'Pääluokan nimi',
+                'Menoluvun nimi', 'Menomomentin nimi']
+    path_inc = ['Total budget', 'Osaston nimi',
+                'Tuloluvun nimi', 'Tulomomentin nimi']
+    if income_expense == 'income':
+        fig = plot_treemap(
+            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown)
+    elif income_expense == 'expenses':
+        fig = plot_treemap(df_exp, path_exp, col_scale='reds_r',
+                           drill_down_level=drilldown)
+    else:
+        raise ValueError("Invalid income-expense value")
+    fig.update_layout(autosize=False, width=1900, height=850,
+                      margin={'t': 25, 'l': 0, 'r': 0, 'b': 0})
+    return fig
+
+
+@app.callback(
     [Output('graph', 'figure'),
      Output('financial-summary', 'data'),
      Output('financial-summary', 'style_data_conditional')],
@@ -125,68 +173,12 @@ app.layout = html.Div([
      Input('income-expense-radio', 'value')]
 )
 def update_graph(year, normalization, drilldown, income_expense):
-    """Method to update graphs based on user drop down selections"""
-
-    df_exp = normalized_budgets[str(year)][f'exp_{normalization}']
-    df_inc = normalized_budgets[str(year)][f'inc_{normalization}']
-
-    total_income, net_income, total_expenses, balance = budget_total_and_balance(
-        df_inc, df_exp)
-
-    balance_color = 'green' if balance >= 0 else 'red'
-    total_income_color = 'green'
-    net_income_color = 'green'
-    total_expenses_color = 'red'
-
-    path_exp = ['Total budget', 'Pääluokan nimi',
-                'Menoluvun nimi', 'Menomomentin nimi']
-    path_inc = ['Total budget', 'Osaston nimi',
-                'Tuloluvun nimi', 'Tulomomentin nimi']
-
-    # title = form_title(year, income_expense, normalization,
-    #                    total_income, net_income, total_expenses)
-
-    if income_expense == 'income':
-        fig = plot_treemap(
-            df_inc, path_inc, col_scale='greens_r', drill_down_level=drilldown)
-    elif income_expense == 'expenses':
-        fig = plot_treemap(
-            df_exp, path_exp, col_scale='reds_r', drill_down_level=drilldown)
-    else:
-        raise ValueError("Invalid income-expense value")
-
-    fig.update_layout(
-        autosize=False,
-        width=1900,
-        height=850,
-        margin={'t': 25, 'l': 0, 'r': 0, 'b': 0},
-    )
-
-    data = [{
-        'total_income': f'{total_income:.2f}',
-        'net_income': f'{net_income:.2f}',
-        'total_expenses': f'{total_expenses:.2f}',
-        'balance': f'{balance:.2f}',
-    }]
-
-    style_data_conditional = [
-        {
-            'if': {'column_id': 'total_income'},
-            'color': total_income_color,
-        },
-        {
-            'if': {'column_id': 'net_income'},
-            'color': net_income_color,
-        },
-        {
-            'if': {'column_id': 'total_expenses'},
-            'color': total_expenses_color,
-        },
-        {
-            'if': {'column_id': 'balance'},
-            'color': balance_color,
-        },
-    ]
+    """Updates the graph based on user input."""
+    df_inc, df_exp, total_income, net_income, total_expenses, balance = get_financial_data(
+        year, normalization)
+    fig = get_figure(income_expense, df_inc, df_exp, drilldown)
+    data, style_data_conditional = get_summary_data(
+        total_income, net_income, total_expenses, balance)
     return fig, data, style_data_conditional
 
 
