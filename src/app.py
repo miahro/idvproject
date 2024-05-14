@@ -17,7 +17,6 @@ from help import get_modal_content
 normalized_budgets = normalized_budgets_dict()
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-# app = dash.Dash(__name__)
 app.title = 'Finnish State Budget'
 
 help_modal = dbc.Modal(
@@ -87,7 +86,7 @@ app.layout = html.Div([
 
 
         html.Div([
-            html.Label('Display', style={
+            html.Label('View', style={
                        'font-weight': 'bold'}),
             dcc.RadioItems(
                 id='income-expense-radio',
@@ -98,18 +97,18 @@ app.layout = html.Div([
                 value='income'
             ),
         ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
-        html.Div([
-            html.Label('Details', style={'font-weight': 'bold'}),
-            dcc.RadioItems(
-                id='drill-down-radioitems',
-                options=[
-                    {'label': 'Detailed', 'value': 4},
-                    {'label': 'Medium', 'value': 3},
-                    {'label': 'Low', 'value': 2},
-                ],
-                value=4
-            ),
-        ], style={'width': '15%', 'display': 'inline-block'}),
+        # html.Div([
+        #     html.Label('Details', style={'font-weight': 'bold'}),
+        #     dcc.RadioItems(
+        #         id='drill-down-radioitems',
+        #         options=[
+        #             {'label': 'Detailed', 'value': 4},
+        #             {'label': 'Medium', 'value': 3},
+        #             {'label': 'Low', 'value': 2},
+        #         ],
+        #         value=4
+        #     ),
+        # ], style={'width': '15%', 'display': 'inline-block'}),
         html.Div([trigger_button, help_modal]),
     ], style={'display': 'flex', 'align-items': 'flex-start', 'backgroundColor': 'lightgrey'}),
 
@@ -136,14 +135,14 @@ def get_financial_data(year, normalization):
      Output('financial-summary', 'style_data_conditional')],
     [Input('year-slider', 'value'),
      Input('normalization-dropdown', 'value'),
-     Input('drill-down-radioitems', 'value'),
+     # Input('drill-down-radioitems', 'value'),
      Input('income-expense-radio', 'value')]
 )
-def update_graph(year, normalization, drilldown, income_expense):
+def update_graph(year, normalization, income_expense):
     """Updates the graph based on user input."""
     df_inc, df_exp, total_income, net_income, total_expenses, balance = get_financial_data(
         year, normalization)
-    fig = get_figure(income_expense, df_inc, df_exp, drilldown, normalization)
+    fig = get_figure(income_expense, df_inc, df_exp, normalization)
     data, style_data_conditional = get_summary_data(
         total_income, net_income, total_expenses, balance)
     return fig, data, style_data_conditional
