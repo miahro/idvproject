@@ -67,4 +67,5 @@ def get_figure(income_expense, df_inc, df_exp, normalization):
         raise ValueError("Invalid income-expense value")
     fig.update_layout(autosize=False, width=1900, height=850,
                       margin={'t': 25, 'l': 0, 'r': 0, 'b': 0})
+
     return fig

@@ -43,7 +43,8 @@ app.layout = html.Div([
             html.Img(src="https://flagcdn.com/w320/fi.png",
                      height="33px", width="54px", style={'margin-left': '30px',
                                                          'vertical-align': 'top'}),
-        ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top', 'margin-left': '20px'}),
+        ], style={'width': '8%', 'display': 'inline-block',
+                  'vertical-align': 'top', 'margin-left': '20px'}),
         html.Div([
             dash_table.DataTable(
                 id='financial-summary',
@@ -56,7 +57,8 @@ app.layout = html.Div([
                 data=[{}],
                 style_cell={'textAlign': 'left'},
             )
-        ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px', 'margin-top': '5px'}),
+        ], style={'width': '22%', 'display': 'inline-block',
+                  'margin-left': '20px', 'margin-top': '5px'}),
 
         html.Div([
             html.Label('Budget unit (normalization)',
@@ -81,7 +83,7 @@ app.layout = html.Div([
                     value=2024,
                     marks={i: str(i) for i in range(2014, 2025)},
                 )
-            ], style={'margin-top': '10px'})
+            ], style={'margin-top': '6px'})
         ], style={'width': '25%', 'display': 'inline-block', 'margin-left': '20px'}),
 
 
