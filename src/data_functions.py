@@ -3,8 +3,8 @@
 
 import pandas as pd
 
-from constants import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
-    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
+from constants import BIG_MAC, TOTAL_CAPITA, \
+    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY, budget_units
 
 
 def read_csvs(url_list):
@@ -73,6 +73,8 @@ def normalize_budget(df, method=None):
     """
     df = df.copy()
 
+    print(f'normalizing budget with method {method}')
+
     if method == 'beuros':
         df['total'] = (df['total'] / 10**9).round(1)
     elif method == 'percentage':
@@ -85,10 +87,6 @@ def normalize_budget(df, method=None):
         df['total'] = df['total'] / (BIG_MAC * TOTAL_CAPITA)
     elif method == 'gdp':
         df['total'] = df['total'] / GDP * 100
-    elif method == 'milk_cartons':
-        df['total'] = df['total'] / (MILK_CARTON * TOTAL_CAPITA)
-    elif method == 'pizzas':
-        df['total'] = df['total'] / (PIZZA * TOTAL_CAPITA)
     elif method == 'median_monthly_salary':
         df['total'] = df['total'] / \
             (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)
@@ -120,8 +118,8 @@ def budget_total_and_balance(df_inc, df_exp):
 
 def normalize_budget_data(budget_exp, budget_inc):
     """Normalize budget data using various methods."""
-    methods = ['beuros', 'percentage', 'per_capita', 'per_working_age_capita',
-               'gdp', 'big_mac', 'milk_cartons', 'pizzas', 'median_monthly_salary']
+    methods = budget_units.keys()
+
     normalized_budgets = {}
     for method in methods:
         normalized_budgets[f'exp_{method}'] = normalize_budget(

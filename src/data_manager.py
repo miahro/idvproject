@@ -49,7 +49,7 @@ def read_csv_to_dict(filename):
     return data_dict
 
 
-def translate_budget_items(df, column_numbers=[0, 1, 2, 3]):  # pylint: disable=dangerous-default-value
+def translate_budget_items(df, column_numbers):
     """
     Translate the values in a column to English.
     """
@@ -94,6 +94,6 @@ def normalized_budgets_dict(translate=True):
                     print(
                         f"For year {year} and method {method}, expect DF but got {type(df)}")
                     continue
-                budget_dict[method] = translate_budget_items(df)
+                budget_dict[method] = translate_budget_items(df, [0, 1, 2, 3])
 
     return normalized_budgets
