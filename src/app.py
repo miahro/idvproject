@@ -43,7 +43,7 @@ app.layout = html.Div([
             html.Img(src="https://flagcdn.com/w320/fi.png",
                      height="33px", width="54px", style={'margin-left': '30px',
                                                          'vertical-align': 'top'}),
-        ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top'}),
+        ], style={'width': '8%', 'display': 'inline-block', 'vertical-align': 'top', 'margin-left': '20px'}),
         html.Div([
             dash_table.DataTable(
                 id='financial-summary',
@@ -56,7 +56,7 @@ app.layout = html.Div([
                 data=[{}],
                 style_cell={'textAlign': 'left'},
             )
-        ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px'}),
+        ], style={'width': '22%', 'display': 'inline-block', 'margin-left': '20px', 'margin-top': '5px'}),
 
         html.Div([
             html.Label('Budget unit (normalization)',
@@ -97,18 +97,6 @@ app.layout = html.Div([
                 value='income'
             ),
         ], style={'width': '10%', 'display': 'inline-block', 'margin-left': '20px'}),
-        # html.Div([
-        #     html.Label('Details', style={'font-weight': 'bold'}),
-        #     dcc.RadioItems(
-        #         id='drill-down-radioitems',
-        #         options=[
-        #             {'label': 'Detailed', 'value': 4},
-        #             {'label': 'Medium', 'value': 3},
-        #             {'label': 'Low', 'value': 2},
-        #         ],
-        #         value=4
-        #     ),
-        # ], style={'width': '15%', 'display': 'inline-block'}),
         html.Div([trigger_button, help_modal]),
     ], style={'display': 'flex', 'align-items': 'flex-start', 'backgroundColor': 'lightgrey'}),
 
@@ -135,7 +123,6 @@ def get_financial_data(year, normalization):
      Output('financial-summary', 'style_data_conditional')],
     [Input('year-slider', 'value'),
      Input('normalization-dropdown', 'value'),
-     # Input('drill-down-radioitems', 'value'),
      Input('income-expense-radio', 'value')]
 )
 def update_graph(year, normalization, income_expense):
