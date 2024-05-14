@@ -4,7 +4,7 @@
 import pandas as pd
 
 from constants import BIG_MAC, MILK_CARTON, PIZZA, TOTAL_CAPITA, \
-    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY, budget_units
+    TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY
 
 
 def read_csvs(url_list):
@@ -37,26 +37,6 @@ def check_same_columns(df_list):
             return False
 
     return True
-
-
-def concat_dataframes(df_list):
-    """
-    Concatenate all dataframes in the list into a single dataframe.
-    """
-
-    df_concat = pd.concat(df_list, ignore_index=True)
-
-    start_columns = list(filter(lambda x: x.startswith(
-        'Määräraha') or x.startswith('Aiemmin budjetoitu'), df_concat.columns))
-
-    df_concat['total'] = df_concat.loc[:,
-                                       start_columns[0]:start_columns[-1]].sum(axis=1)
-    drop_columns = list(filter(lambda x: x.endswith(
-        'info-osa') or x.startswith('Toteutuma') or x.endswith('numero'), df_concat.columns))
-
-    df_concat = df_concat.drop(columns=start_columns + drop_columns)
-
-    return df_concat
 
 
 def process_dataframe(df_list):
@@ -114,7 +94,6 @@ def normalize_budget(df, method=None):
             (MEDIAN_MONTHLY_SALARY * TOTAL_WORKING_AGE_CAPITA)
     else:
         raise ValueError("Invalid normalization method.")
-    # print(f'normalized with {method} method')
 
     return df
 
@@ -134,14 +113,7 @@ def budget_total_and_balance(df_inc, df_exp):
     ).str.startswith('Net borrowing'), 'total'].values[0]
 
     net_income = total_income - net_loans
-
-    # print(f"total loans: {net_loans}")
     balance = net_income - total_expenses
-
-    # print(
-    #     f'total income: {total_income}, net income: {net_income} total expenses:'
-    #     f'{total_expenses}, balance: {balance}'
-    # )
 
     return total_income, net_income, total_expenses, balance
 
@@ -157,28 +129,3 @@ def normalize_budget_data(budget_exp, budget_inc):
         normalized_budgets[f'inc_{method}'] = normalize_budget(
             budget_inc, method=method)
     return normalized_budgets
-
-# pylint: disable=too-many-arguments
-
-
-def form_title(year, budget_type, normalization, total_income, net_income, total_expenses):
-    """
-    Form a title for the plot.
-    """
-
-    title = f'Budget for year {year}'
-
-    if budget_type == 'expenses':
-        title += ' - Expenses. '
-        title += f'Total expenses: {total_expenses:.2f} '
-    elif budget_type == 'income':
-        title += ' - Income. '
-        title += f'Total income: {total_income:.2f}'
-        title += f' ({budget_units[normalization]}). '
-        title += f'Net income (income without loans): {net_income:.2f} '
-    else:
-        raise ValueError("Invalid type.")
-
-    title += f' ({budget_units[normalization]})'
-
-    return title
