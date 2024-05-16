@@ -72,8 +72,6 @@ def normalize_budget(df, method=None):
     """
     df = df.copy()
 
-    print(f'normalizing budget with method {method}')
-
     if method == 'beuros':
         df['total'] = (df['total'] / 10**9).round(1)
     elif method == 'percentage':

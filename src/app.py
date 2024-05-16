@@ -4,8 +4,7 @@ import os
 from dotenv import load_dotenv
 
 import dash
-import dash_table
-from dash import dcc, html
+from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 from data_manager import normalized_budgets_dict
@@ -29,7 +28,8 @@ help_modal = dbc.Modal(
         ),
     ],
     id="modal-help",
-    is_open=False
+    is_open=False,
+    size='xl'
 )
 
 trigger_button = html.Button('Help/Info', id='open-help', n_clicks=0)
