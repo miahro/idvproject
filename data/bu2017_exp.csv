@@ -1,0 +1,454 @@
+Total budget,Pääluokan nimi,Menoluvun nimi,Menomomentin nimi,total
+Koko budjetti,EDUSKUNTA,Kansanedustajat,Kansanedustajien toimintamenot,21639000
+Koko budjetti,EDUSKUNTA,Eduskunnan kanslia,Eduskunnan kanslian toimintamenot,54034000
+Koko budjetti,EDUSKUNTA,Eduskunnan kanslia,Peruskorjaukseen liittyvät toimintamenot,6893000
+Koko budjetti,EDUSKUNTA,Eduskunnan kanslia,Arvonlisäveromenot,15500000
+Koko budjetti,EDUSKUNTA,Eduskunnan kanslia,Avustajatuki eduskuntaryhmille,2790000
+Koko budjetti,EDUSKUNTA,Eduskunnan kanslia,Tietohallinnon laitehankinnat ja kehittämishankkeet,5325000
+Koko budjetti,EDUSKUNTA,Eduskunnan kanslia,Eduskunnan rakennusten peruskorjaukset,44000000
+Koko budjetti,EDUSKUNTA,Eduskunnan oikeusasiamies,Eduskunnan oikeusasiamiehen kanslian toimintamenot,6201000
+Koko budjetti,EDUSKUNTA,Ulkopoliittinen instituutti,Ulkopoliittisen instituutin toimintamenot,3398000
+Koko budjetti,EDUSKUNTA,Ulkopoliittinen instituutti,Arvonlisäveromenot,210000
+Koko budjetti,EDUSKUNTA,Valtiontalouden tarkastusvirasto,Valtiontalouden tarkastusviraston toimintamenot,15325000
+Koko budjetti,EDUSKUNTA,Valtiontalouden tarkastusvirasto,Arvonlisäveromenot,590000
+Koko budjetti,EDUSKUNTA,Eduskunnan muut menot,Eduskuntaryhmien ryhmäkanslioiden tukeminen,4083000
+Koko budjetti,TASAVALLAN PRESIDENTTI,Tasavallan presidentti,Tasavallan presidentin palkkio,126000
+Koko budjetti,TASAVALLAN PRESIDENTTI,Tasavallan presidentti,Tasavallan presidentin toimintamenot,199000
+Koko budjetti,TASAVALLAN PRESIDENTTI,Tasavallan presidentti,Vierailuista ja kokousmatkoista aiheutuvat menot,2550000
+Koko budjetti,TASAVALLAN PRESIDENTTI,Tasavallan presidentin kanslia,Tasavallan presidentin kanslian toimintamenot,7754000
+Koko budjetti,TASAVALLAN PRESIDENTTI,Tasavallan presidentin kanslia,Eläkkeellä olevien presidenttien menot,600000
+Koko budjetti,TASAVALLAN PRESIDENTTI,Tasavallan presidentin kanslia,Arvonlisäveromenot,2500000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Hallinto,Valtioneuvoston kanslian toimintamenot,123240000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Hallinto,Ministereiden heidän valtiosihteeriensä ja erityisavustajiensa palkkaukset,5575000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Hallinto,Euroopan unionin kansallisten asiantuntijoiden palkkamenot,1000000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Hallinto,Pääministerin kansliassa toimivien ministereiden ja heidän avustajiensa matkat,867000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Hallinto,Valtioneuvoston selvitys- ja tutkimustoiminta,11400000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Hallinto,Arvonlisäveromenot,19446000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Omistajaohjaus,Osakehankinnat,5700000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Poliittisen toiminnan avustaminen,Puoluetoiminnan tukeminen,29635000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Oikeuskanslerinvirasto,Oikeuskanslerinviraston toimintamenot,3467000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Muut menot,Kunniamerkit,700000
+Koko budjetti,VALTIONEUVOSTON KANSLIA,Muut menot,Suomi 100,10100000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainhallinto,Ulkoasiainhallinnon toimintamenot,220484000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainhallinto,Tiede- ja kulttuuri-instituuttikiinteistöjen menot,2282000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainhallinto,Ulkoasiainministeriön hallinnonalan tuottavuusmääräraha,1155000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainhallinto,Ulkoasiainministeriön hallinnonalan arvonlisäveromenot,16059000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainhallinto,Talonrakennukset,7750000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainhallinto,Kiinteistöjen ja huoneistojen hankkiminen,0
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Kriisinhallinta,Suomalaisten kriisinhallintajoukkojen ylläpitomenot,49774000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Kriisinhallinta,Siviilihenkilöstön osallistuminen kriisinhallintaan,15360000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Kansainvälinen kehitysyhteistyö,Valtionapu Teollisen yhteistyön rahasto Oy:lle,0
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Kansainvälinen kehitysyhteistyö,Varsinainen kehitysyhteistyö,535195000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Kansainvälinen kehitysyhteistyö,Finnfundin (Teollisen yhteistyön rahasto Oy) pääoman korottaminen,10000000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Kansainvälinen kehitysyhteistyö,Kehitysyhteistyön finanssisijoitukset,130000000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainministeriön hallinnonalan muut menot,Eräät valtionavut,1341000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainministeriön hallinnonalan muut menot,Hädänalaisten avustaminen,45000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainministeriön hallinnonalan muut menot,Eräät jäsenmaksut ja rahoitusosuudet,86992000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainministeriön hallinnonalan muut menot,Kansainvälisen ilmastosopimuksen alaisen yhteistyön menot,100000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainministeriön hallinnonalan muut menot,Itämeren Barentsin ja arktisen alueen yhteistyö,1800000
+Koko budjetti,ULKOASIAINMINISTERIÖN HALLINNONALA,Ulkoasiainministeriön hallinnonalan muut menot,Kurssivaihtelut,1000000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Oikeusministeriön toimintamenot,20446000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Oikeusministeriön yhteydessä toimivien viranomaisten toimintamenot,7188000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Oikeusrekisterikeskuksen toimintamenot,8301000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Erityismenot,19032000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Oikeusministeriön hallinnonalan tuottavuusmääräraha,245000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Toimisto- ja viestintäjärjestelmien valtavirtaistaminen,2184000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Oikeusministeriön hallinnonalan arvonlisäveromenot,43705000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Avustukset,8305000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Ministeriö ja hallinto,Eräät valtion maksamat korvaukset,19000000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Tuomioistuimet ja oikeusapu,Korkeimman oikeuden toimintamenot,8627000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Tuomioistuimet ja oikeusapu,Korkeimman hallinto-oikeuden toimintamenot,12709000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Tuomioistuimet ja oikeusapu,Muiden tuomioistuinten toimintamenot,256497000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Tuomioistuimet ja oikeusapu,Oikeusapu- ja edunvalvontapiirien toimintamenot,61152000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Tuomioistuimet ja oikeusapu,Yksityisille oikeusavustajille maksettavat korvaukset,77200000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Maksuhäiriöt ulosotto ja konkurssivalvonta,Ulosottolaitoksen ja konkurssivalvonnan toimintamenot,103271000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Syyttäjät,Syyttäjälaitoksen toimintamenot,44748000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Rangaistusten täytäntöönpano,Rikosseuraamuslaitoksen toimintamenot,210984000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Rangaistusten täytäntöönpano,Avolaitostyöt,4700000
+Koko budjetti,OIKEUSMINISTERIÖN HALLINNONALA,Vaalimenot,Vaalimenot,8453000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Sisäministeriön toimintamenot,13632000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Hallinnon tietotekniikkakeskuksen toimintamenot,0
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Siviilikriisinhallinnan kotimaan valmiudet,1439000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Tietohallinnon yhteiset menot,8517000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan,32224000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Sisäministeriön hallinnonalan arvonlisäveromenot,75000000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Eräät avustukset,225000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Hallinto,Kansainvälisten järjestöjen jäsenmaksut ja maksuosuudet ulkomaille,1017000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Poliisitoimi,Poliisitoimen toimintamenot,696678000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Poliisitoimi,Suojelupoliisin toimintamenot,27391000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Poliisitoimi,Maasta poistamis- ja noutokuljetuksista aiheutuvat menot,17666000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Poliisitoimi,KEJO-hankkeen yhteiset toimintamenot,4000000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Rajavartiolaitos,Rajavartiolaitoksen toimintamenot,231029000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Rajavartiolaitos,Ilma- ja vartioalusten hankinta,9400000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Pelastustoimi ja hätäkeskustoiminta,Pelastustoimen toimintamenot,12914000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Pelastustoimi ja hätäkeskustoiminta,Hätäkeskuslaitoksen toimintamenot,49795000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Pelastustoimi ja hätäkeskustoiminta,Erityismenot,2406000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Pelastustoimi ja hätäkeskustoiminta,Turvallisuusviranomaisten viestintäverkot,8100000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Maahanmuutto,Maahanmuuttoviraston ja valtion vastaanottokeskusten toimintamenot,60658000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Maahanmuutto,Paluumuuttajien muuttovalmennus,0
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Maahanmuutto,Pakolaisten ja turvapaikanhakijoiden vastaanotto,225344000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Maahanmuutto,Vapaaehtoinen paluu,5800000
+Koko budjetti,SISÄMINISTERIÖN HALLINNONALA,Maahanmuutto,Vastaanottotoiminnan asiakkaille maksettavat tuet,37000000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Puolustuspolitiikka ja hallinto,Puolustusministeriön toimintamenot,14710000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Puolustuspolitiikka ja hallinto,Puolustusministeriön hallinnonalan tuottavuusmääräraha,2875000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Puolustuspolitiikka ja hallinto,Puolustusministeriön hallinnonalan arvonlisäveromenot,364098000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Sotilaallinen maanpuolustus,Puolustusvoimien toimintamenot,1914331000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Sotilaallinen maanpuolustus,Puolustusmateriaalihankinnat,475173000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Sotilaallinen maanpuolustus,Hawk Mk 51 -koneiden modifiointi,4600000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Sotilaallinen maanpuolustus,Maanpuolustusjärjestöjen toiminnan tukeminen,2029000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Sotilaallinen kriisinhallinta,Sotilaallisen kriisinhallinnan kalusto- ja hallintomenot,51893000
+Koko budjetti,PUOLUSTUSMINISTERIÖN HALLINNONALA,Sotilaallinen kriisinhallinta,Kurssivaihtelut,10000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Hallinto,Valtiovarainministeriön toimintamenot,29920000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Hallinto,Valtion kiinteistöstrategian toteuttaminen ja hallinnonalan omistajaohjaus,245000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Hallinto,Valtiovarainministeriön hallinnonalan tuottavuusmääräraha,0
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Hallinto,Valtiovarainministeriön hallinnonalan arvonlisäveromenot,106000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Verotus ja tulli,Verohallinnon toimintamenot,405820000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Verotus ja tulli,Tullin toimintamenot,159837000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Verotus ja tulli,Takaisin maksetut verot,15900000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Verotus ja tulli,Verotukseen liittyvät korkomenot,22700000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Verotus ja tulli,Autoveron vientipalautus,5000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Valtiokonttorin toimintamenot,22837000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Keskitettyjen valuuttatilien kurssierot,1000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Sähköisen asioinnin ja hallinnon yhteiset palvelut,1000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Valtion talous- ja henkilöstöhallinnon palvelukeskuksen toimintamenot,2000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Valtion talous- ja henkilöstöhallinnon palvelukeskuksen kehittäminen,0
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Valtion tieto- ja viestintätekniikkakeskuksen toimintamenot,3000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Valtion tieto- ja viestintätekniikkakeskuksen investointimenot,10000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Palvelut valtioyhteisölle,Senaatti-kiinteistöt,0
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Tilastotoimi taloudellinen tutkimus ja rekisterihallinto,Tilastokeskuksen toimintamenot,47138000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Tilastotoimi taloudellinen tutkimus ja rekisterihallinto,Valtion taloudellisen tutkimuskeskuksen toimintamenot,3382000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Tilastotoimi taloudellinen tutkimus ja rekisterihallinto,Väestörekisterikeskuksen toimintamenot,9620000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtion alue- ja paikallishallinto,Aluehallintoviraston toimintamenot,53300000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtion alue- ja paikallishallinto,Maistraattien toimintamenot,28429000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtion alue- ja paikallishallinto,Alue- ja paikallishallinnon tukitoimet,352000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Eläkkeet ja korvaukset,Eläkkeet,4577377000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Eläkkeet ja korvaukset,Ylimääräiset eläkkeet,2096000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Eläkkeet ja korvaukset,Muut eläkemenot,2625000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Eläkkeet ja korvaukset,Vahingonkorvaukset,40500000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Eläkkeet ja korvaukset,Muiden eläkelaitosten vastattavaksi kuuluvat eläkemenot,198471000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Eläkkeet ja korvaukset,Muiden eläkelaitosten valtion puolesta maksamien eläkemenojen ja valtiolle maksamien ennakoiden korkomenot,15733000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon yhteiset henkilöstömenot,Erikseen budjetoidut palkkamenot,25000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon yhteiset henkilöstömenot,Työturvallisuuden edistäminen,850000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon yhteiset henkilöstömenot,Osaamisen kehittäminen,15000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon yhteiset henkilöstömenot,Siirto Koulutusrahastolle,230000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Valtion ICT:n ohjaus ja kehittäminen,6000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Valtion talous- henkilöstö- ja toimitilahallinnon tietojärjestelmät,5300000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Kansallisen tietoalan ohjaus ja kehittäminen,27500000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Maakunta- ja sosiaali- ja terveydenhuollon uudistuksen valmistelun ja toimeenpanon tuki ja ohjaus,31300000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Tuottavuuden edistäminen,49730000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Kansallisen tulorekisterin toteutus,15828000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Valtionhallinnon kehittäminen,Hallinnon palveluiden digitalisoinnin tuki,15072000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Siirrot Ahvenanmaan maakunnalle,Ahvenanmaan tasoitusmaksu,224576000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Siirrot Ahvenanmaan maakunnalle,Verohyvitys Ahvenanmaan maakunnalle,15000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Siirrot Ahvenanmaan maakunnalle,Arpajaisveron tuoton palauttaminen Ahvenanmaan maakunnalle,13000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Kuntien tukeminen,Julkisen sektorin yhteisen tietohallinnon ja tiedon hallinnan kehittäminen,1400000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Kuntien tukeminen,Hallinto- ja palvelurakenteiden kehittäminen ja tukeminen,200000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Kuntien tukeminen,Valtionosuus kunnille peruspalvelujen järjestämiseen,8597754000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Kuntien tukeminen,Kuntien yhdistymisen taloudellinen tuki,27125000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Kuntien tukeminen,Paikallisten kuntakokeilujen rahoitus,0
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Työllisyyden ja elinkeinoelämän tukeminen,Energiaverotuki,251000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Rahoitusvakausviraston toimintamenot,2450000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Euroopan unionin osallistuminen matkamenojen korvauksiin,1500000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Isäntämaakorvaus Pohjoismaiden Investointipankille,11100000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Kansainvälisille rahoituslaitoksille annettujen sitoumusten lunastaminen,170000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Maksut Euroopan unionille,1903000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Suomen osuus Aasian infrastruktuuri-investointipankin peruspääomasta,11030000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,EU ja kansainväliset järjestöt,Valtion takaussuoritukset,800000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Erikseen budjetoidut valtionhallinnon menot,Satunnaiset säädösperusteiset menot,300000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Erikseen budjetoidut valtionhallinnon menot,Ennakoimattomat menot,5000000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Erikseen budjetoidut valtionhallinnon menot,Valtion saatavien turvaaminen,150000
+Koko budjetti,VALTIOVARAINMINISTERIÖN HALLINNONALA,Erikseen budjetoidut valtionhallinnon menot,Kassasijoitusten riskienhallinta,30000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Opetus- ja kulttuuriministeriön toimintamenot,18021000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Opetushallituksen toimintamenot,46077000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Kansainvälisen liikkuvuuden ja yhteistyön keskuksen CIMOn toimintamenot,0
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Kansallisen koulutuksen arviointikeskuksen toimintamenot,3687000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Kansainvälinen yhteistyö,3058000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Eräät käyttöoikeuskorvaukset,14203000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Opetus- ja kulttuuriministeriön hallinnonalan arvonlisäveromenot,28540000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Eräät avustukset,1537000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Avustukset kirkolliseen ja uskonnolliseen toimintaan,3313000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin,114000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Eräät turvapaikanhakijoista ja maahanmuuttajista aiheutuvat avustukset,8090000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Hallinto kirkollisasiat ja toimialan yhteiset menot,Rahoitusosuudet kansainvälisille järjestöille,2226000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Valtion yleissivistävän koulutuksen toimintamenot,42183000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Ylioppilastutkintolautakunnan toimintamenot,3285000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Yleissivistävän koulutuksen varhaiskasvatuksen ja vapaan sivistystyön yhteiset menot,34016000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Valtionosuus ja -avustus yleissivistävän koulutuksen käyttökustannuksiin,711542000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin,146270000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Valtionavustus yleissivistävän koulutuksen järjestöille,1206000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Yleissivistävä koulutus ja varhaiskasvatus,Valtionavustus vapaan sivistystyön järjestöille,6387000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Ammatillinen koulutus,Valtion ammatillisen koulutuksen toimintamenot,7975000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Ammatillinen koulutus,Ammatillisen koulutuksen kehittäminen,8511000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Ammatillinen koulutus,Valtionosuus ja -avustus ammatillisen koulutuksen käyttökustannuksiin,721415000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Ammatillinen koulutus,Nuorten aikuisten osaamisohjelma,25141000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Suomen Akatemian toimintamenot,12081000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Kansallisarkiston toimintamenot,17850000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Kotimaisten kielten keskuksen toimintamenot,1145000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Varastokirjaston toimintamenot,1681000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Korkeakoululaitoksen ja tieteen yhteiset menot,91981000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Tutkimusinfrastruktuurihankkeiden rahoitus,8500000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Valtionrahoitus yliopistojen toimintaan,1795674000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Suomen Akatemian tutkimusmäärärahat,238331000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Erityinen valtionrahoitus Helsingin yliopiston ja Itä-Suomen yliopiston opetus- ja tutkimustoimintaan,0
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Rahapelitoiminnan voittovarat tieteen edistämiseen,104383000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Strateginen tutkimusrahoitus,47000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Valtionrahoitus ammattikorkeakoulujen toimintaan,834915000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Rahoitusosuudet kansainvälisille järjestöille,19746000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Korkeakouluopetus ja tutkimus,Valtion rahoitus yliopistojen pääomasijoituksiin,150000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Opintotuki,Opintotuen muutoksenhakulautakunnan toimintamenot,621000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Opintotuki,Opintolainojen valtiontakaus,40200000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Opintotuki,Opintoraha ja asumislisä,655881000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Opintotuki,Korkeakouluopiskelijoiden ateriatuki,31456000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Opintotuki,Lukiokoulutuksen ja ammatillisen koulutuksen opiskelijoiden koulumatkatuki,53300000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Taiteen edistämiskeskuksen toimintamenot,4052000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Suomenlinnan hoitokunnan toimintamenot,2121000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Museoviraston toimintamenot,23093000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Näkövammaisten kirjaston toimintamenot,4937000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Kansallisen audiovisuaalisen instituutin toimintamenot,6080000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Ylimääräiset taiteilija- ja sanomalehtimieseläkkeet,18848000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Museoviraston kulttuuri- ja nähtävyyskohteiden tilakustannukset,15400000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Valtionavustukset yleisten kirjastojen toimintaan,3700000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Valtionosuus ja -avustus teattereiden orkestereiden ja museoiden käyttökustannuksiin,48781000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Valtionosuudet ja -avustukset museoille,0
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Valtionavustus Suomen itsenäisyyden 100-vuotisjuhlavuoden merkkihankkeen perustamiskustannuksiin,8000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Korvaus Suomenlinnan huoltoliikenteen käyttötappioon,252000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Eräät käyttöoikeuskorvaukset,26648000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Eräät avustukset,8293000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Apurahat taiteilijoille kirjailijoille ja kääntäjille,14615000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Rahapelitoiminnan voittovarat taiteen edistämiseen,233589000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Valtionavustus tilakustannuksiin,27257000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Valtionavustus taide- ja kulttuurilaitosten toimitilainvestointeihin,0
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Digitaalisen kulttuuriperinnön saatavuus ja säilyttäminen,1950000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Eräät avustukset Kansallisgallerialle,10000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Kansallisgallerian kokoelman kartuttaminen,739000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Toimitilojen ja kiinteistövarallisuuden perusparannukset ja kunnossapito,4899000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Taide ja kulttuuri,Kulttuuriympäristön suojelusta aiheutuvat menot,50000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Liikuntatoimi,Avustus Liikkuva koulu -ohjelmaan,7000000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Liikuntatoimi,Rahapelitoiminnan voittovarat urheilun ja liikuntakasvatuksen edistämiseen,154097000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Liikuntatoimi,Valtionosuus liikunnan koulutuskeskuksille ja rahoitus liikuntatieteellisten hankkeiden arviointikustannuksiin,1826000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Nuorisotyö,Rahapelitoiminnan voittovarat nuorisotyön edistämiseen,53617000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Nuorisotyö,Nuorten työpajatoiminta ja etsivä nuorisotyö,20003000
+Koko budjetti,OPETUS- JA KULTTUURIMINISTERIÖN HALLINNONALA,Nuorisotyö,Eräät avustukset,4150000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Hallinto ja tutkimus,Maa- ja metsätalousministeriön toimintamenot,23124000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Hallinto ja tutkimus,Luonnonvarakeskuksen toimintamenot,70801000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Hallinto ja tutkimus,Tutkimus ja kehittäminen,1343000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Hallinto ja tutkimus,Hallinnolliset järjestelyt,420000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Hallinto ja tutkimus,Maa- ja metsätalousministeriön hallinnonalan arvonlisäveromenot,27390000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Hallinto ja tutkimus,Eräät jäsenmaksut ja rahoitusosuudet,4353000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Maatalouden aloittamis- ja investointiavustukset,71976000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Maaseutuelinkeinotoiminnan korkotuki,14000000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Luopumistuet ja -eläkkeet,57230000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Eläinten hyvinvointikorvaukset,67767000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Valtionapu maaseudun elinkeinojen kehittämiseen,5366000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Porotalouden edistäminen,1843000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Hevostalouden edistäminen hevoskasvatuksen ja  hevosurheilun edistämiseen tarkoitetulla rahapelitoiminnan tuotolla,39772000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Valtionapu 4H-toimintaan,3905000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,Maaseudun kehittäminen,1273000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maaseudun kehittäminen,EU:n ja valtion rahoitusosuus alueelliseen ja paikalliseen maaseudun kehittämiseen,109440000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Elintarviketurvallisuusviraston toimintamenot,39941000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Maaseutuviraston toimintamenot,24202000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Eläinlääkintähuolto ja kasvintuhoojien torjunta,6028000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Maa- ja puutarhatalouden kansallinen tuki,327900000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,EU-tulotuki ja EU-markkinatuki,540000000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Eräät korvaukset,0
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Ympäristökorvaukset luonnonmukainen tuotanto neuvonta ja ei-tuotannolliset investoinnit,300043000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Luonnonhaittakorvaukset,551888000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,EU:n osarahoittama ruokaketjun kehittäminen,4605000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Kansallinen ruokaketjun kehittäminen,4419000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Siirto interventiorahastoon,200000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Siirto Maatilatalouden kehittämisrahastoon,30000000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maa- ja elintarviketalous,Eräät valtionavut,5767000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Kalakannan hoitovelvoitteet,3000000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Vesivarojen käytön ja hoidon menot,13520000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Luonnonvara- ja biotalouden edistäminen,16880000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Vesi- ja kalataloushankkeiden tukeminen,7136000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Eräät luonnonvaratalouden korvaukset,1245000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Hirvieläinten aiheuttamien vahinkojen korvaaminen,3400000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Petoeläinten aiheuttamien vahinkojen korvaaminen,7900000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Tuki puuntuotannon kestävyyden turvaamiseen,56230000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Metsäluonnon hoidon edistäminen,3027000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Valtionapu Suomen metsäkeskukselle,41200000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Riistatalouden edistäminen,10130000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Kalatalouden edistäminen,8850000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Eräät luonnonvaratalouden valtionavut,1332000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Elinkeinokalatalouden edistäminen,20881000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Luonnonvaratalous,Lainat puuntuotannon kestävyyden turvaamiseen,50000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Metsähallitus,Metsähallituksen eräät julkiset hallintotehtävät,5514000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maanmittaus ja tietovarannot,Maanmittauslaitoksen toimintamenot,45352000
+Koko budjetti,MAA- JA METSÄTALOUSMINISTERIÖN HALLINNONALA,Maanmittaus ja tietovarannot,Kiinteistötoimitusten tukemisesta aiheutuvat menot,3400000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Hallinto ja toimialan yhteiset menot,Liikenne- ja viestintäministeriön toimintamenot,15182000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Hallinto ja toimialan yhteiset menot,Liikenne- ja viestintäministeriön hallinnonalan tuottavuusmääräraha,1660000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Hallinto ja toimialan yhteiset menot,Liikenne- ja viestintäministeriön hallinnonalan arvonlisäveromenot,468394000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Liikenneviraston toimintamenot,74313000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Perusväylänpito,1271950000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Valtionavustus länsimetron rakentamiseen,83000000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Valtionavustus raideliikennehankkeiden rakentamiseen,0
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Valtionavustus eräiden lentopaikkojen rakentamiseen ja ylläpitoon,1000000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Valtionavustus yksityisten teiden kunnossapitoon ja parantamiseen,13000000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Maa- ja vesialueiden hankinnat ja korvaukset,34997000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Väyläverkon kehittäminen,272800000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Eräät väylähankkeet,54400000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenneverkko,Elinkaarirahoitushankkeet,107000000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen viranomaispalvelut,Liikenteen turvallisuusviraston toimintamenot,47609000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen viranomaispalvelut,Tieliikenteen turvallisuustoiminnan edistäminen,9100000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen tukeminen ja ostopalvelut,Valtionavustus koulutuksesta,841000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen tukeminen ja ostopalvelut,Meriliikenteessä käytettävien alusten kilpailukyvyn parantaminen,101420000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen tukeminen ja ostopalvelut,Luotsauksen hintatuki,4200000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen tukeminen ja ostopalvelut,Joukkoliikenteen palvelujen osto ja kehittäminen,84524000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen tukeminen ja ostopalvelut,Saariston yhteysalusliikennepalvelujen ostot ja kehittäminen,12990000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Liikenteen tukeminen ja ostopalvelut,Yhteysalusliikennepalvelujen ostosopimukset,5303000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Viestintäpalvelut ja -verkot sekä viestinnän tukeminen,Viestintäviraston toimintamenot,11049000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Viestintäpalvelut ja -verkot sekä viestinnän tukeminen,Median innovaatiotuki,0
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Viestintäpalvelut ja -verkot sekä viestinnän tukeminen,Valtionavustus valtakunnallisen laajakaistahankkeen toteuttamiseen,0
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Viestintäpalvelut ja -verkot sekä viestinnän tukeminen,Siirto valtion televisio- ja radiorahastoon,507948000
+Koko budjetti,LIIKENNE- JA VIESTINTÄMINISTERIÖN HALLINNONALA,Sää- meri- ja ilmastopalvelut,Ilmatieteen laitoksen toimintamenot,45184000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Työ- ja elinkeinoministeriön toimintamenot,33558000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Elinkeino- liikenne- ja ympäristökeskusten toimintamenot,172660000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Siviilipalvelus,4939000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Työ- ja elinkeinoministeriön hallinnonalan tuottavuusmääräraha,2326000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Työ- ja elinkeinoministeriön hallinnonalan arvonlisäveromenot,35854000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Valtionavustus yritysten kansainvälistymiseen ja yrittäjyyden edistämiseen,14143000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Siirrot hallinnonalan rahastoihin,20000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Kansainvälisten järjestöjen jäsenmaksut ja rahoitusosuudet,8507000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Hallinto,Osakehankinnat,100000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Geologian tutkimuskeskuksen toimintamenot,31557000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Innovaatiorahoituskeskus Tekesin toimintamenot,43523000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Materiaalitehokkuuden edistäminen,400000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Tutkimus- kehittämis- ja innovaatiotoiminnan tukeminen,274500000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Erityisavustus Teknologian tutkimuskeskus VTT Oy:n tutkimusinfrastruktuuriin,2500000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Innovaatiokeskittymien kehittäminen,4100000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Cleantech- ja biotalousratkaisujen sekä innovaatioiden kaupallistamisen tukeminen,43000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Finnvera Oyj:n tappiokorvaukset,64643000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Korko- ja muu tuki julkisesti tuetuille vienti- ja alusluotoille,40300000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Valtionavustus Teknologian tutkimuskeskus VTT Oy:n toimintaan,87303000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Avustus kansainvälisen teknologiapalkinnon maksamiseen,0
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Naisille suunnattu innovaatiopalkinto,118000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Lainat Suomen Vientiluotto Oy:n jälleenrahoitustoimintaan,82462000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Lainat Finnvera Oyj:n varainhankintaan,10000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Lainat tutkimus- ja innovaatiotoimintaan,139900000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Pääomalaina Finnvera Oyj:lle,5000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Pääomasijoitus Suomen Teollisuussijoitus Oy:lle,29500000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Elinkeino- ja innovaatiopolitiikka,Pääomasijoitus Tekes Pääomasijoitus Oy:lle,20000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Työllisyys- ja yrittäjyyspolitiikka,Työ- ja elinkeinotoimistojen toimintamenot,173131000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Työllisyys- ja yrittäjyyspolitiikka,Julkiset työvoima- ja yrityspalvelut,423753000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Kilpailu- ja kuluttajaviraston toimintamenot,10619000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Patentti- ja rekisterihallituksen toimintamenot,6055000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Turvallisuus- ja kemikaaliviraston toimintamenot,19482000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Korvaus talous- ja velkaneuvonnan järjestämisestä,4731000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Valtionavustus kuluttajajärjestölle,892000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Eräät merimiespalvelut,2572000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Palkkaturva,32000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Yritysten toimintaympäristö markkinoiden sääntely ja työelämä,Eräät oikeudenkäyntikulut ja korvaukset,50000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,Alueellisten innovaatioiden ja kokeilujen käynnistäminen,11000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,Valtionavustus Finpron toimintaan,34130000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,Yritysten kehittämishankkeiden tukeminen,20078000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,Kansainvälistymisavustus yritysten yhteishankkeisiin,5315000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,Alueellinen kuljetustuki,5000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,EU:n ja valtion rahoitusosuus EU:n rakennerahasto- ulkorajayhteistyö- ja muihin koheesiopolitiikan ohjelmiin,357458000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Alueiden kehittäminen ja rakennerahastopolitiikka,Työllisyysperusteiset siirtomenot investointeihin,5000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Energiaviraston toimintamenot,6407000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Energiatehokkuuden ja uusiutuvan energian käytön edistäminen,2500000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Energiatuki,70076000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,LNG-terminaalien investointituki,28465000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Valtiontuki sähköhuollon varmistamiseksi,385000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Kioton mekanismit,250000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Uusiutuvan energian tuotantotuki,273400000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Uusiutuvan energian ja uuden energiateknologian investointituki,40000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Energiapolitiikka,Päästökaupan epäsuorien kustannusten kompensaatiotuki,43000000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Kotouttaminen,Maahanmuuttajien kotoutumisen ja työllistymisen edistäminen,1631000
+Koko budjetti,TYÖ- JA ELINKEINOMINISTERIÖN HALLINNONALA,Kotouttaminen,Valtion korvaukset kotouttamisesta,232245000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Sosiaali- ja terveysministeriön toimintamenot,30970000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Työttömyysturvan muutoksenhakulautakunnan toimintamenot,2536000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Sosiaaliturvan muutoksenhakulautakunnan toimintamenot,5102000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Valtion mielisairaaloiden toimintamenot,563000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Terveyden ja hyvinvoinnin laitoksen alaisten lastensuojeluyksiköiden toimintamenot,1011000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Terveyden ja hyvinvoinnin laitoksen alaisen vankiterveydenhuollon yksikön toimintamenot,16085000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Sosiaali- ja terveydenhuollon kansalliset sähköiset asiakastietojärjestelmät,13330000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Sosiaali- ja terveysministeriön hallinnonalan arvonlisäveromenot,18671000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Hallinto,Kansainväliset jäsenmaksut ja maksuosuudet,3707000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Valvonta,Säteilyturvakeskuksen toimintamenot,12438000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Valvonta,Sosiaali- ja terveysalan lupa- ja valvontaviraston toimintamenot,10762000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Valvonta,Lääkealan turvallisuus- ja kehittämiskeskuksen toimintamenot,3879000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Valvonta,Työsuojelun aluehallintoviranomaisten toimintamenot,24308000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Valvonta,Oikeuslääketieteellisen kuolemansyyn selvittämisen menot,8215000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Valvonta,Osakehankinnat,0
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Tutkimus- ja kehittämistoiminta,Terveyden ja hyvinvoinnin laitoksen toimintamenot,49502000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Tutkimus- ja kehittämistoiminta,Kansallinen genomikeskus ja kansallinen syöpäkeskus,5800000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Tutkimus- ja kehittämistoiminta,Hyvinvoinnin ja terveyden edistäminen,49690000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Tutkimus- ja kehittämistoiminta,Valtionapu Työterveyslaitoksen menoihin,23222000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Tutkimus- ja kehittämistoiminta,Eräät erityishankkeet,7572000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Äitiysavustus ja valtion tuki kansainväliseen adoptioon,10500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Lapsilisät,1360500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Eräät valtion korvattavat perhe-etuudet,4600000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Sotilasavustus,16500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Asumistuki,1256400000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Elatustuki,213500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Vaikeavammaisten tulkkauspalvelut,46900000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Perustoimeentulotuki,831638000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Perhe- ja asumiskustannusten tasaus perustoimeentulotuki ja eräät palvelut,Kansaneläkelaitoksen sosiaaliturvarahastojen toimintakulut,348747000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Työttömyysturva,Valtion korvaus kunnille kuntouttavan työtoiminnan järjestämisestä,26840000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Työttömyysturva,Valtionosuus ansiopäivärahasta,1086000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Työttömyysturva,Valtionosuus peruspäivärahasta,121000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Työttömyysturva,Valtionosuus työmarkkinatuesta,1507360000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Työttömyysturva,Valtionosuus aikuiskoulutustuesta,53000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Työttömyysturva,Valtionosuus vuorottelukorvauksesta,26000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Sairausvakuutus,Valtion osuus sairausvakuutuslaista johtuvista menoista,1951000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Eläkkeet,Valtion osuus merimieseläkekassan menoista,60100000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Eläkkeet,Valtion osuus maatalousyrittäjän eläkelaista johtuvista menoista,663100000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Eläkkeet,Valtion osuus yrittäjän eläkelaista johtuvista menoista,149000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Eläkkeet,Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkkeestä,12200000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Eläkkeet,Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista,15000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Eläkkeet,Valtion osuus kansaneläkelaista ja eräistä muista laeista johtuvista menoista,3612140000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Valtion korvaus sodista kärsineiden huoltoon,1450000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Rintamalisät,16140000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Sotilasvammakorvaukset,104500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Valtion korvaus sota- ja sotilasinvalidien kuntoutus- ja hoitolaitosten kustannuksiin,57000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Valtionapu sotainvalidien puolisoiden kuntoutustoimintaan,3100000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Rintama-avustus eräille ulkomaalaisille vapaaehtoisille rintamasotilaille,50000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Eräät kuntoutustoiminnan menot,3500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Rintamaveteraanien kuntoutustoiminnan menot,37688000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Veteraanien tukeminen,Valtionapu rintamaveteraanien kuntoutustoimintaan,3608000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion korvaus terveydenhuollon valtakunnallisen valmiuden kustannuksiin,500000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Sosiaali- ja terveydenhuollon palvelurakenneuudistuksen tuki ja eräät muut menot,400000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion rahoitus terveydenhuollon yksiköille yliopistotasoiseen tutkimukseen,20000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion korvaus terveydenhuollon yksiköille lääkäri- ja hammaslääkärikoulutuksesta aiheutuviin kustannuksiin,94140000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion korvaus terveydenhuollon toimintayksiköille oikeuspsykiatrisista tutkimuksista sekä potilassiirroista aiheutuviin kustannuksiin,15200000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtionavustus saamenkielisten sosiaali- ja terveyspalvelujen turvaamiseksi,480000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion rahoitus lääkäri- ja lääkintähelikopteritoiminnan menoihin,28990000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtionavustus valtakunnallista julkista terveydenhoitoa antavan lastensairaalan perustamiskustannuksiin,0
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion rahoitus turvakotitoiminnan menoihin,13550000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtionavustus sosiaalialan osaamiskeskusten toimintaan,3000000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Kuntien järjestämä sosiaali- ja terveydenhuolto,Valtion korvaus rikosasioiden sovittelun järjestämisen kustannuksiin,6300000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Terveyden ja toimintakyvyn edistäminen,Rokotteiden hankinta,27990000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Terveyden ja toimintakyvyn edistäminen,Terveysvalvonta,750000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Terveyden ja toimintakyvyn edistäminen,Tartuntatautien valvonta,580000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Terveyden ja toimintakyvyn edistäminen,Terveyden edistäminen,2330000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Terveyden ja toimintakyvyn edistäminen,Valtion korvaus työterveyshuollon erikoislääkärikoulutuksesta aiheutuviin kustannuksiin,1900000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Terveyden ja toimintakyvyn edistäminen,Valtionavustus UKK-instituutin toimintaan,928000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Maatalousyrittäjien ja turkistuottajien lomitustoiminta,Valtion korvaus maatalousyrittäjien lomituspalvelujen kustannuksiin,159300000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Maatalousyrittäjien ja turkistuottajien lomitustoiminta,Valtion korvaus turkistuottajien lomituspalvelujen kustannuksiin,2550000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Maatalousyrittäjien ja turkistuottajien lomitustoiminta,Valtion korvaus poronhoitajien sijaisavun kustannuksiin,300000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Maatalousyrittäjien ja turkistuottajien lomitustoiminta,Valtion korvaus maatalousyrittäjien ja turkistuottajien lomituspalvelujen hallintomenoihin,16140000
+Koko budjetti,SOSIAALI- JA TERVEYSMINISTERIÖN HALLINNONALA,Avustukset terveyden ja sosiaalisen hyvinvoinnin edistämiseen,Avustukset yhteisöille ja säätiöille terveyden ja sosiaalisen hyvinvoinnin edistämiseen,317600000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristöhallinnon toimintamenot,Ympäristöministeriön toimintamenot,27485000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristöhallinnon toimintamenot,Suomen ympäristökeskuksen toimintamenot,25878000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristöhallinnon toimintamenot,Ympäristöministeriön hallinnonalan arvonlisäveromenot,6405000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristöhallinnon toimintamenot,Avustukset järjestöille ja ympäristönhoitoon,2280000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Ympäristövahinkojen torjunta,5900000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Eräät luonnonsuojelun menot,2440000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Eräät ympäristömenot,14725000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Metsähallituksen julkiset hallintotehtävät,29656000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Siirto öljysuojarahastoon,3000000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Vesien- ja ympäristönhoidon edistäminen,6042000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Luonnonsuojelualueiden hankinta- ja korvausmenot,20630000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,EU:n ympäristörahaston osallistuminen ympäristö- ja luonnonsuojeluhankkeisiin,4500000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Öljyjätemaksulla rahoitettava öljyjätehuolto,1000000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Kansainvälisen yhteistyön jäsenmaksut ja rahoitusosuudet,1732000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Ympäristön- ja luonnonsuojelu,Alusinvestoinnit,5000000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Yhdyskunnat rakentaminen ja asuminen,Asumisen rahoitus- ja kehittämiskeskuksen toimintamenot,5181000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Yhdyskunnat rakentaminen ja asuminen,Rakennetun ympäristön ja rakentamisen digitalisaatio,4000000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Yhdyskunnat rakentaminen ja asuminen,Avustukset korjaustoimintaan,20000000
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Yhdyskunnat rakentaminen ja asuminen,Siirto valtion asuntorahastoon,0
+Koko budjetti,YMPÄRISTÖMINISTERIÖN HALLINNONALA,Yhdyskunnat rakentaminen ja asuminen,Avustukset rakennusperinnön hoitoon,850000
+Koko budjetti,VALTIONVELAN KOROT,Valtionvelan korko,Valtionvelan korko,1296000000
+Koko budjetti,VALTIONVELAN KOROT,Muut menot valtionvelasta,Palkkiot ja muut menot valtionvelasta,11510000
