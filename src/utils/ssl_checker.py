@@ -1,5 +1,8 @@
-import ssl
+"""module for SSL certificate checking"""
+
+
 import socket
+import ssl
 
 
 def check_ssl_certificate(url):
@@ -15,10 +18,12 @@ def check_ssl_certificate(url):
 
 
 def main():
+    """Main function."""
 
-    # url = "https://budjetti.vm.fi/indox/opendata/2024/tae/eduskunnanKirjelma/2024-tae-eduskunnanKirjelma.html"
-    url = "https://www.helsinki.fi/"
-    # url = "https://budjetti.vm.fi/indox/opendata/2024/tae/eduskunnanKirjelma/2024-tae-eduskunnanKirjelma-21.csv"
+    # url = "https://budjetti.vm.fi/indox/opendata/2024/tae\
+    #     /eduskunnanKirjelma/2024-tae-eduskunnanKirjelma.html"
+    url = "https://budjetti.vm.fi/indox/opendata/2024/tae\
+            /eduskunnanKirjelma/2024-tae-eduskunnanKirjelma-21.csv"
     certificate = check_ssl_certificate(url)
     print(certificate)
 

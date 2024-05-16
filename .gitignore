@@ -2,3 +2,4 @@ __pycache__
 translations.csv
 .env
 trl.csv
+data_backup/

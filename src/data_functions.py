@@ -1,14 +1,9 @@
 """Module for data functions."""
 
-
 import pandas as pd
-import requests
 
 from constants import BIG_MAC, TOTAL_CAPITA, \
     TOTAL_WORKING_AGE_CAPITA, GDP, MEDIAN_MONTHLY_SALARY, budget_units
-
-
-from io import StringIO
 
 
 def read_csvs(url_list):
